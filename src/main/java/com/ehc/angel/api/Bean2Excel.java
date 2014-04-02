@@ -9,20 +9,22 @@ import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.hssf.util.HSSFCellUtil;
 import org.apache.poi.ss.util.CellUtil;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.text.ParseException;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Bean2Excel {
-  private HSSFWorkbook workbook;
-  private HSSFFont boldFont;
-  private HSSFDataFormat format;
+  private static HSSFWorkbook workbook;
+  private static HSSFFont boldFont;
+  private static HSSFDataFormat format;
   private static int id;
+
+  HSSFRow row;
+  static HSSFSheet sheet;
+
+  File file = new File("./angel-list.xls");
   ReportColumn[] reportColumns = new ReportColumn[]{
       new ReportColumn("id", "Id", FormatType.INTEGER),
       new ReportColumn("name", "Name", FormatType.TEXT),
@@ -41,28 +43,31 @@ public class Bean2Excel {
       new ReportColumn("what_ive_built", "What Ive Built", FormatType.TEXT),
       new ReportColumn("location", "Location", FormatType.TEXT),
       new ReportColumn("role", "Role", FormatType.TEXT),
-//          new ReportColumn("skill", "Skills", FormatType.TEXT),
       new ReportColumn("investor", "Is Investor?", FormatType.TEXT)
   };
 
-  User[] users;
+  ArrayList<User> users = new ArrayList<User>();
+
+
+  static {
+    workbook = new HSSFWorkbook();
+    boldFont = workbook.createFont();
+    boldFont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
+    format = workbook.createDataFormat();
+    sheet = workbook.createSheet("Sheet1");
+  }
+
 
   public static void main(String[] args) {
-
     try {
-      // Create the report object
       Bean2Excel oReport = new Bean2Excel();
-
+      for (id = 62; id <= 71; id++) {
         oReport.getUsers();
-        oReport.addSheet(Arrays.asList(oReport.users), oReport.reportColumns, "sheet1");
-        File file = new File("./angel-list.xls");
-        if (!file.isFile()) {
-          file.createNewFile();
-        }
-        OutputStream output = new FileOutputStream(file, true);
-        oReport.write(output);
-        output.close();
-      
+      }
+      oReport.writeData(oReport.users);
+      FileOutputStream output = new FileOutputStream(oReport.file, true);
+      oReport.write(output);
+      output.close();
     } catch (ParseException e) {
       e.printStackTrace();
     } catch (FileNotFoundException e) {
@@ -74,6 +79,78 @@ public class Bean2Excel {
   }
 
 
+  public void addSheet() {
+    System.out.println("In addSheet Method");
+
+    int numCols = reportColumns.length;
+    try {
+      // Create the report header at row 0
+      row = sheet.createRow(0);
+      // Loop over all the column beans and populate the report headers
+      for (int i = 0; i < numCols; i++) {
+        System.out.println("Writing Column headings");
+
+        // Get the header text from the bean and write it to the cell
+        writeCell(row, i, reportColumns[i].getHeader(), FormatType.TEXT,
+            null, this.boldFont);
+      }
+      System.out.println("row count is:" + sheet.getLastRowNum());
+
+    } catch (Exception e) {
+      System.err.println("Caught Generate Error exception: "
+          + e.getMessage());
+    }
+  }
+
+
+  public void writeData(List<?> data) {
+
+
+    System.out.println("in WriteData");
+    FileInputStream fis = null;
+    try {
+      fis = new FileInputStream(file);
+      workbook = new HSSFWorkbook(fis);
+      sheet = workbook.getSheetAt(0);
+
+      sheet = workbook.getSheet("Sheet1");
+      for (int i = 0; i < data.size(); i++) {
+        System.out.println("iterate:" + i);
+        // create a row in the spreadsheet
+        row = sheet.createRow(sheet.getLastRowNum() + 1);
+        System.out.println("row count is:" + sheet.getLastRowNum());
+
+
+        // get the bean for the current row
+        Object bean = data.get(i);
+        // For each column object, create a column on the current row
+
+        for (int y = 0; y < reportColumns.length; y++) {
+
+
+          System.out.println("writing each cell");
+
+          Object value = PropertyUtils.getProperty(bean,
+              reportColumns[y].getMethod());
+          writeCell(row, y, value, reportColumns[y].getType(),
+              reportColumns[y].getColor(), reportColumns[y].getFont());
+
+        }
+      }
+      fis.close();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+
+
+    // Autosize columns
+    for (int i = 0; i < reportColumns.length; i++) {
+      System.out.println("Autosize each cell");
+      sheet.autoSizeColumn((short) i);
+    }
+
+  }
+
   private void getUsers() {
     try {
       HttpResponse<JsonNode> request = Unirest.get("https://api.angel.co/1/users/batch?ids=" + id)
@@ -83,61 +160,52 @@ public class Bean2Excel {
       System.out.println(node.toString());
       System.out.println(request);
       Gson gson = new Gson();
-      users = gson.fromJson(node.toString(), User[].class);
-      System.out.println("size:" + users.length);
+      User[] user = gson.fromJson(node.toString(), User[].class);
+      if (user != null && user.length > 0) {
+        users.add(user[0]);
+      }
     } catch (Exception e) {
       e.printStackTrace();
     }
   }
 
   public Bean2Excel() {
-    workbook = new HSSFWorkbook();
-    boldFont = workbook.createFont();
-    boldFont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
-    format = workbook.createDataFormat();
-  }
-
-  public void addSheet(List<?> data, ReportColumn[] columns, String sheetName) {
-    HSSFSheet sheet = workbook.createSheet(sheetName);
-    int numCols = columns.length;
-    int currentRow = 0;
-    HSSFRow row;
-    try {
-      // Create the report header at row 0
-      row = sheet.createRow(currentRow);
-      // Loop over all the column beans and populate the report headers
-      for (int i = 0; i < numCols; i++) {
-        // Get the header text from the bean and write it to the cell
-        writeCell(row, i, columns[i].getHeader(), FormatType.TEXT,
-            null, this.boldFont);
+    if (!this.file.exists()) {
+      try {
+        this.file.createNewFile();
+        this.addSheet();
+        FileOutputStream output = new FileOutputStream(this.file);
+        workbook.write(output);
+        output.flush();
+        output.close();
+      } catch (Exception e) {
+        e.printStackTrace();
       }
-      currentRow++; // increment the spreadsheet row before we step into
-      // Write report rows
-      for (int i = 0; i < data.size(); i++) {
-        // create a row in the spreadsheet
-        row = sheet.createRow(currentRow++);
-        // get the bean for the current row
-        Object bean = data.get(i);
-        // For each column object, create a column on the current row
-        for (int y = 0; y < numCols; y++) {
-          Object value = PropertyUtils.getProperty(bean,
-              columns[y].getMethod());
-          writeCell(row, y, value, columns[y].getType(),
-              columns[y].getColor(), columns[y].getFont());
-        }
-      }
-
-      // Autosize columns
-      for (int i = 0; i < numCols; i++) {
-        sheet.autoSizeColumn((short) i);
-      }
-
-    } catch (Exception e) {
-      System.err.println("Caught Generate Error exception: "
-          + e.getMessage());
     }
-
   }
+
+
+  // increment the spreadsheet row before we step into
+  // Write report rows
+//      for (int i = 0; i < data.size(); i++) {
+//        // create a row in the spreadsheet
+//        row = sheet.createRow(currentRow++);
+//        // get the bean for the current row
+//        Object bean = data.get(i);
+//        // For each column object, create a column on the current row
+//        for (int y = 0; y < numCols; y++) {
+//          Object value = PropertyUtils.getProperty(bean,
+//              columns[y].getMethod());
+//          writeCell(row, y, value, columns[y].getType(),
+//              columns[y].getColor(), columns[y].getFont());
+//        }
+//      }
+
+//      // Autosize columns
+//      for (int i = 0; i < numCols; i++) {
+//        sheet.autoSizeColumn((short) i);
+//      }
+
 
   public HSSFFont boldFont() {
     return boldFont;
