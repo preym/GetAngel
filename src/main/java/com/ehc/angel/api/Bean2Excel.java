@@ -14,7 +14,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.text.ParseException;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -22,7 +22,10 @@ public class Bean2Excel {
   private HSSFWorkbook workbook;
   private HSSFFont boldFont;
   private HSSFDataFormat format;
-  private static int id;
+  private static int startIndex = 1;
+  private static int endIndex = 50;
+  private int sheetNumber = 1;
+
   ReportColumn[] reportColumns = new ReportColumn[]{
       new ReportColumn("id", "Id", FormatType.INTEGER),
       new ReportColumn("name", "Name", FormatType.TEXT),
@@ -45,7 +48,7 @@ public class Bean2Excel {
       new ReportColumn("investor", "Is Investor?", FormatType.TEXT)
   };
 
-  User[] users;
+  ArrayList<User> users = new ArrayList<User>();
 
   public static void main(String[] args) {
 
@@ -53,16 +56,32 @@ public class Bean2Excel {
       // Create the report object
       Bean2Excel oReport = new Bean2Excel();
 
-        oReport.getUsers();
-        oReport.addSheet(Arrays.asList(oReport.users), oReport.reportColumns, "sheet1");
-        File file = new File("./angel-list.xls");
-        if (!file.isFile()) {
-          file.createNewFile();
+      for (; endIndex <= 500; ) {
+        String queryString = "";
+        for (int index = startIndex; index <= endIndex; index++) {
+          queryString = queryString + index + ",";
         }
-        OutputStream output = new FileOutputStream(file, true);
-        oReport.write(output);
-        output.close();
-      
+        oReport.getUsers(queryString);
+        startIndex = endIndex + 1;
+        endIndex = endIndex + 50;
+
+
+        if (oReport.users.get(oReport.users.size() - 1).getId() % 100 == 0) {
+          oReport.addSheet(oReport.users, oReport.reportColumns, "sheet" + oReport.sheetNumber++);
+          System.out.println("Sheet NUm:" + oReport.sheetNumber);
+
+          File file = new File("./angel-list.xls");
+          if (!file.exists()) {
+            file.createNewFile();
+          }
+          OutputStream output = new FileOutputStream(file, true);
+          oReport.write(output);
+          output.flush();
+          output.close();
+          oReport.users.clear();
+
+        }
+      }
     } catch (ParseException e) {
       e.printStackTrace();
     } catch (FileNotFoundException e) {
@@ -71,20 +90,25 @@ public class Bean2Excel {
       e.printStackTrace();
     }
 
+
   }
 
 
-  private void getUsers() {
+  private void getUsers(String queryString) {
     try {
-      HttpResponse<JsonNode> request = Unirest.get("https://api.angel.co/1/users/batch?ids=" + id)
+      HttpResponse<JsonNode> request = Unirest.get("https://api.angel.co/1/users/batch?ids=" + queryString)
           .asJson();
       JsonNode node = request.getBody();
       System.out.println(node.isArray());
       System.out.println(node.toString());
       System.out.println(request);
       Gson gson = new Gson();
-      users = gson.fromJson(node.toString(), User[].class);
-      System.out.println("size:" + users.length);
+      User[] userList = gson.fromJson(node.toString(), User[].class);
+      if (userList != null) {
+        for (User user : userList) {
+          users.add(user);
+        }
+      }
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -103,22 +127,15 @@ public class Bean2Excel {
     int currentRow = 0;
     HSSFRow row;
     try {
-      // Create the report header at row 0
       row = sheet.createRow(currentRow);
-      // Loop over all the column beans and populate the report headers
       for (int i = 0; i < numCols; i++) {
-        // Get the header text from the bean and write it to the cell
         writeCell(row, i, columns[i].getHeader(), FormatType.TEXT,
             null, this.boldFont);
       }
       currentRow++; // increment the spreadsheet row before we step into
-      // Write report rows
       for (int i = 0; i < data.size(); i++) {
-        // create a row in the spreadsheet
         row = sheet.createRow(currentRow++);
-        // get the bean for the current row
         Object bean = data.get(i);
-        // For each column object, create a column on the current row
         for (int y = 0; y < numCols; y++) {
           Object value = PropertyUtils.getProperty(bean,
               columns[y].getMethod());

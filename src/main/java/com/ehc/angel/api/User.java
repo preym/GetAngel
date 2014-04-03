@@ -13,7 +13,7 @@ public class User {
   private String facebook_url;
   private Number follower_count;
   private String github_url;
-  private Number id;
+  private int id;
   private String image;
   private boolean investor;
   private String linkedin_url;
@@ -125,11 +125,11 @@ public class User {
     this.github_url = github_url;
   }
 
-  public Number getId() {
+  public int getId() {
     return this.id;
   }
 
-  public void setId(Number id) {
+  public void setId(int id) {
     this.id = id;
   }
 
