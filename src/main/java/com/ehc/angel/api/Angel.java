@@ -7,6 +7,7 @@ import com.mashape.unirest.http.Unirest;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.hssf.util.HSSFCellUtil;
+import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.ss.util.CellUtil;
 
 import java.io.*;
@@ -15,16 +16,18 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Bean2Excel {
+public class Angel {
   private static HSSFWorkbook workbook;
   private static HSSFFont boldFont;
   private static HSSFDataFormat format;
   private static int id;
+  private static int rowCount = 0;
+  private static boolean isExist = false;
 
   HSSFRow row;
   static HSSFSheet sheet;
 
-  File file = new File("./angel-list.xls");
+  public static File file = new File("./angel-list.xls");
   ReportColumn[] reportColumns = new ReportColumn[]{
       new ReportColumn("id", "Id", FormatType.INTEGER),
       new ReportColumn("name", "Name", FormatType.TEXT),
@@ -47,27 +50,50 @@ public class Bean2Excel {
   };
 
   ArrayList<User> users = new ArrayList<User>();
+  static FileOutputStream output;
 
 
   static {
-    workbook = new HSSFWorkbook();
-    boldFont = workbook.createFont();
-    boldFont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
-    format = workbook.createDataFormat();
-    sheet = workbook.createSheet("Sheet1");
+    try {
+      if (file.exists()) {
+        System.out.println("File Existed");
+        POIFSFileSystem fileSystem = new POIFSFileSystem(new FileInputStream(file));
+        workbook = new HSSFWorkbook(fileSystem);
+        System.out.println("workbook:" + workbook);
+      } else {
+        System.out.println("File Not Existed");
+        workbook = new HSSFWorkbook();
+      }
+      boldFont = workbook.createFont();
+      boldFont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
+      format = workbook.createDataFormat();
+
+      sheet = workbook.getSheet("Sheet1");
+      isExist = true;
+      if (sheet == null) {
+        isExist = false;
+        System.out.println("sheet null");
+        sheet = workbook.createSheet("Sheet1");
+      }
+      output = new FileOutputStream(file, true);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
   }
 
 
   public static void main(String[] args) {
     try {
-      Bean2Excel oReport = new Bean2Excel();
-      for (id = 62; id <= 71; id++) {
-        oReport.getUsers();
+      Angel oReport = new Angel();
+      String queryString = "";
+      for (id = 151; id <= 200; id++) {
+        queryString = queryString + id + ",";
       }
+      oReport.getUsers(queryString);
       oReport.writeData(oReport.users);
-      FileOutputStream output = new FileOutputStream(oReport.file, true);
-      oReport.write(output);
-      output.close();
+      oReport.write(oReport.output);
+      oReport.output.flush();
+      oReport.output.close();
     } catch (ParseException e) {
       e.printStackTrace();
     } catch (FileNotFoundException e) {
@@ -84,16 +110,13 @@ public class Bean2Excel {
 
     int numCols = reportColumns.length;
     try {
-      // Create the report header at row 0
-      row = sheet.createRow(0);
-      // Loop over all the column beans and populate the report headers
+      row = sheet.createRow(rowCount);
       for (int i = 0; i < numCols; i++) {
         System.out.println("Writing Column headings");
-
-        // Get the header text from the bean and write it to the cell
         writeCell(row, i, reportColumns[i].getHeader(), FormatType.TEXT,
             null, this.boldFont);
       }
+      rowCount++;
       System.out.println("row count is:" + sheet.getLastRowNum());
 
     } catch (Exception e) {
@@ -104,40 +127,21 @@ public class Bean2Excel {
 
 
   public void writeData(List<?> data) {
-
-
     System.out.println("in WriteData");
-    FileInputStream fis = null;
     try {
-      fis = new FileInputStream(file);
-      workbook = new HSSFWorkbook(fis);
-      sheet = workbook.getSheetAt(0);
-
-      sheet = workbook.getSheet("Sheet1");
       for (int i = 0; i < data.size(); i++) {
         System.out.println("iterate:" + i);
-        // create a row in the spreadsheet
         row = sheet.createRow(sheet.getLastRowNum() + 1);
         System.out.println("row count is:" + sheet.getLastRowNum());
-
-
-        // get the bean for the current row
         Object bean = data.get(i);
-        // For each column object, create a column on the current row
-
         for (int y = 0; y < reportColumns.length; y++) {
-
-
           System.out.println("writing each cell");
-
           Object value = PropertyUtils.getProperty(bean,
               reportColumns[y].getMethod());
           writeCell(row, y, value, reportColumns[y].getType(),
               reportColumns[y].getColor(), reportColumns[y].getFont());
-
         }
       }
-      fis.close();
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -148,12 +152,11 @@ public class Bean2Excel {
       System.out.println("Autosize each cell");
       sheet.autoSizeColumn((short) i);
     }
-
   }
 
-  private void getUsers() {
+  private void getUsers(String queryString) {
     try {
-      HttpResponse<JsonNode> request = Unirest.get("https://api.angel.co/1/users/batch?ids=" + id)
+      HttpResponse<JsonNode> request = Unirest.get("https://api.angel.co/1/users/batch?ids=" + queryString)
           .asJson();
       JsonNode node = request.getBody();
       System.out.println(node.isArray());
@@ -162,26 +165,18 @@ public class Bean2Excel {
       Gson gson = new Gson();
       User[] user = gson.fromJson(node.toString(), User[].class);
       if (user != null && user.length > 0) {
-        users.add(user[0]);
+        for (User eachUser : user) {
+          users.add(eachUser);
+        }
       }
     } catch (Exception e) {
       e.printStackTrace();
     }
   }
 
-  public Bean2Excel() {
-    if (!this.file.exists()) {
-      try {
-        this.file.createNewFile();
-        this.addSheet();
-        FileOutputStream output = new FileOutputStream(this.file);
-        workbook.write(output);
-        output.flush();
-        output.close();
-      } catch (Exception e) {
-        e.printStackTrace();
-      }
-    }
+  public Angel() {
+    if (!isExist)
+      this.addSheet();
   }
 
 

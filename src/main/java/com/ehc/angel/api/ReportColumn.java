@@ -5,11 +5,11 @@ import org.apache.poi.hssf.usermodel.HSSFFont;
 public class ReportColumn {
     private String m_method;
     private String m_header;
-    private Bean2Excel.FormatType m_type;
+    private Angel.FormatType m_type;
     private HSSFFont m_font;
     private Short m_color;
 
-    public ReportColumn(String method, String header, Bean2Excel.FormatType type,
+    public ReportColumn(String method, String header, Angel.FormatType type,
                         HSSFFont font, Short color) {
         this.m_method = method;
         this.m_header = header;
@@ -17,16 +17,16 @@ public class ReportColumn {
         this.m_font = font;
         this.m_color = color;
     }
-    public ReportColumn(String method, String header, Bean2Excel.FormatType type,
+    public ReportColumn(String method, String header, Angel.FormatType type,
                         HSSFFont font) {
         this(method, header, type, font, null);
     }
-    public ReportColumn(String method, String header, Bean2Excel.FormatType type,
+    public ReportColumn(String method, String header, Angel.FormatType type,
                         Short color) {
         this(method, header, type, null, color);
     }
 
-    public ReportColumn(String method, String header, Bean2Excel.FormatType type) {
+    public ReportColumn(String method, String header, Angel.FormatType type) {
         this(method, header, type, null, null);
     }
 
@@ -46,11 +46,11 @@ public class ReportColumn {
         this.m_header = header;
     }
 
-    public Bean2Excel.FormatType getType() {
+    public Angel.FormatType getType() {
         return m_type;
     }
 
-    public void setType(Bean2Excel.FormatType type) {
+    public void setType(Angel.FormatType type) {
         this.m_type = type;
     }
 
