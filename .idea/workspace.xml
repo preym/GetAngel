@@ -2,19 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56bd8274-1195-4716-9ba9-741a99862653" name="Default" comment="Added basic logic for get Angels info.">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.~lock.angel-list.xls#" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/AngelStartUp.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/CompanyType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/FormatType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Markets.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/StartUp.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Startups.java" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/angel-list.xls" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Bean2Excel.java" afterPath="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Bean2Excel.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Bean2Excel.java" afterPath="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/AngelUser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.~lock.angel-list.xls#" afterPath="$PROJECT_DIR$/.~lock.angel-list.xls#" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/MainClass.java" afterPath="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/MainClass.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/ReportColumn.java" afterPath="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/ReportColumn.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="GetAngel.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/fragment.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396419492206" ignored="false" />
-    <file path="/User.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396505067631" ignored="false" />
+    <file path="/fragment.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396527095006" ignored="false" />
+    <file path="/User.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396525738627" ignored="false" />
     <file path="/MainClass.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396424944540" ignored="false" />
     <file path="/Bean2Excel.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396509020108" ignored="false" />
-    <file path="/Dummy.txt" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396509298404" ignored="false" />
+    <file path="/Dummy.txt" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396518692039" ignored="false" />
+    <file path="/AngelStartUp.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396528369440" ignored="false" />
+    <file path="/FormateType.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396520217130" ignored="false" />
+    <file path="/AngelUser.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396520246474" ignored="false" />
+    <file path="/ReportColumn.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396520398397" ignored="false" />
+    <file path="/Startups.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396526270950" ignored="false" />
+    <file path="/CompanyType.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396524857841" ignored="false" />
+    <file path="/StartUp.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396528246809" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,54 +92,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="Startups.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Startups.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="19" selection-start="306" selection-end="1167" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Bean2Excel.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Bean2Excel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="29" selection-start="745" selection-end="745" vertical-scroll-proportion="0.73743016">
+            <state line="77" column="5" selection-start="2169" selection-end="2169" vertical-scroll-proportion="1.1724138">
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2075#2081#0" expanded="true" />
-                <element signature="method#getUsers#0;class#Bean2Excel#0" expanded="false" />
-                <element signature="method#Bean2Excel#0;class#Bean2Excel#0" expanded="false" />
-                <element signature="method#addSheet#0;class#Bean2Excel#0" expanded="false" />
-                <element signature="method#writeCell#0;class#Bean2Excel#0" expanded="false" />
-                <element signature="class#FormatType#0;class#Bean2Excel#0" expanded="false" />
+                <element signature="method#getCompanyType#0;class#Startups#0" expanded="false" />
+                <element signature="method#getId#0;class#Startups#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/pom.xml">
+      <file leaf-file-name="AngelStartUp.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/AngelStartUp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="19" selection-start="1167" selection-end="1167" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="29" column="0" selection-start="795" selection-end="795" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2882#2892#0" expanded="true" />
+                <element signature="method#writeCell#0;class#AngelStartUp#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReportColumn.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/ReportColumn.java">
+      <file leaf-file-name="StartUp.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/StartUp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="18" selection-start="1305" selection-end="1305" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainClass.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/MainClass.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="103" selection-start="510" selection-end="510" vertical-scroll-proportion="0.0">
+            <state line="8" column="26" selection-start="153" selection-end="153" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -134,25 +129,7 @@
       <file leaf-file-name="User.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="128" column="19" selection-start="2793" selection-end="2793" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Skill.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Skill.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="13" selection-start="66" selection-end="66" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Role.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Role.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="13" selection-start="66" selection-end="66" vertical-scroll-proportion="0.0">
+            <state line="42" column="0" selection-start="1106" selection-end="1106" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -161,7 +138,7 @@
       <file leaf-file-name="Location.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Location.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="0" selection-start="187" selection-end="187" vertical-scroll-proportion="0.0">
+            <state line="3" column="13" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -185,14 +162,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Employee.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Location.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/MainClass.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/ReportColumn.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Bean2Excel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Angel.java" />
+        <option value="$PROJECT_DIR$/src/main/src/main/java/com/ehc/angel/api/Locations.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Markets.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/AngelUser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/FormateType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/ReportColumn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/CompanyType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/StartUp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/AngelStartUp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Startups.java" />
       </list>
     </option>
   </component>
@@ -204,8 +189,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1919" />
-    <option name="y" value="1076" />
+    <option name="x" value="-1" />
+    <option name="y" value="-4" />
     <option name="width" value="1922" />
     <option name="height" value="1085" />
   </component>
@@ -235,8 +220,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -297,6 +280,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GetAngel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -307,6 +312,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -323,16 +330,17 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/ehc/angel/api" />
       <recent name="E:\swami workspace\ GetAngel\lib" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Bean2Excel">
+  <component name="RunManager" selected="Application.AngelStartUp">
     <configuration default="false" name="MainClass" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="com.ehc.angel.api.MainClass" />
@@ -350,14 +358,36 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="Bean2Excel" type="Application" factoryName="Application" temporary="true">
+    <configuration default="false" name="AngelUser" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="com.ehc.angel.api.Bean2Excel" />
+      <option name="MAIN_CLASS_NAME" value="com.ehc.angel.api.AngelUser" />
       <option name="VM_PARAMETERS" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="main" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="AngelStartUp" type="Application" factoryName="Application" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.ehc.angel.api.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.ehc.angel.api.AngelStartUp" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
@@ -399,6 +429,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -425,19 +468,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -492,14 +522,16 @@
       <option name="CLEAR_LOGCAT" value="false" />
       <method />
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Application.MainClass" />
-      <item index="1" class="java.lang.String" itemvalue="Application.Bean2Excel" />
+      <item index="1" class="java.lang.String" itemvalue="Application.AngelUser" />
+      <item index="2" class="java.lang.String" itemvalue="Application.AngelStartUp" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Application.Bean2Excel" />
-        <item index="1" class="java.lang.String" itemvalue="Application.MainClass" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="Application.AngelStartUp" />
+        <item index="1" class="java.lang.String" itemvalue="Application.AngelUser" />
+        <item index="2" class="java.lang.String" itemvalue="Application.MainClass" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -539,13 +571,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1919" y="1076" width="1922" height="1085" extended-state="6" />
-    <editor active="true" />
+    <frame x="-1" y="-4" width="1922" height="1085" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2878625" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7841031" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle View" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -558,8 +590,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22459893" sideWeight="0.8313641" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16863587" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22459893" sideWeight="0.7175081" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28249195" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -642,75 +674,9 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Location.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="221" selection-end="221" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="19" selection-start="637" selection-end="637" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/MainClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="121" selection-start="411" selection-end="411" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="19" selection-start="637" selection-end="637" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/MainClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="30" selection-start="751" selection-end="751" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Employee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="1" selection-start="966" selection-end="966" vertical-scroll-proportion="0.9373849">
-          <folding>
-            <element signature="e#443#444#0" expanded="true" />
-            <element signature="e#472#473#0" expanded="true" />
-            <element signature="e#511#512#0" expanded="true" />
-            <element signature="e#545#546#0" expanded="true" />
-            <element signature="e#574#575#0" expanded="true" />
-            <element signature="e#601#602#0" expanded="true" />
-            <element signature="e#637#638#0" expanded="true" />
-            <element signature="e#667#668#0" expanded="true" />
-            <element signature="e#699#700#0" expanded="true" />
-            <element signature="e#732#733#0" expanded="true" />
-            <element signature="e#777#778#0" expanded="true" />
-            <element signature="e#819#820#0" expanded="true" />
-            <element signature="e#851#852#0" expanded="true" />
-            <element signature="e#882#883#0" expanded="true" />
-            <element signature="e#925#926#0" expanded="true" />
-            <element signature="e#963#964#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="38" column="19" selection-start="306" selection-end="1167" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Location.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="187" selection-end="187" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -729,20 +695,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/MainClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="103" selection-start="510" selection-end="510" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="128" column="19" selection-start="2793" selection-end="2793" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="38" column="19" selection-start="1167" selection-end="1167" vertical-scroll-proportion="0.0">
@@ -750,24 +702,96 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/ReportColumn.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/MainClass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="18" selection-start="1305" selection-end="1305" vertical-scroll-proportion="0.0">
+        <state line="20" column="81" selection-start="488" selection-end="488" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Bean2Excel.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/ReportColumn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="29" selection-start="745" selection-end="745" vertical-scroll-proportion="0.73743016">
+        <state line="24" column="0" selection-start="685" selection-end="685" vertical-scroll-proportion="0.5336927">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Markets.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="16" selection-start="376" selection-end="376" vertical-scroll-proportion="0.43951166">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/FormatType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="30" selection-start="84" selection-end="84" vertical-scroll-proportion="0.088948786">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Employee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="1" selection-start="966" selection-end="966" vertical-scroll-proportion="1.1859838">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/CompanyType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="76" selection-end="76" vertical-scroll-proportion="0.05929919">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Location.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="13" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="0" selection-start="1106" selection-end="1106" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/AngelUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="29" selection-start="3707" selection-end="3707" vertical-scroll-proportion="1.2758621">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2075#2081#0" expanded="true" />
-            <element signature="method#getUsers#0;class#Bean2Excel#0" expanded="false" />
-            <element signature="method#Bean2Excel#0;class#Bean2Excel#0" expanded="false" />
-            <element signature="method#addSheet#0;class#Bean2Excel#0" expanded="false" />
-            <element signature="method#writeCell#0;class#Bean2Excel#0" expanded="false" />
-            <element signature="class#FormatType#0;class#Bean2Excel#0" expanded="false" />
+            <element signature="e#2272#2278#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/AngelStartUp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="0" selection-start="795" selection-end="795" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2882#2892#0" expanded="true" />
+            <element signature="method#writeCell#0;class#AngelStartUp#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/StartUp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="26" selection-start="153" selection-end="153" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Startups.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="77" column="5" selection-start="2169" selection-end="2169" vertical-scroll-proportion="1.1724138">
+          <folding>
+            <element signature="method#getCompanyType#0;class#Startups#0" expanded="false" />
+            <element signature="method#getId#0;class#Startups#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -18,7 +18,7 @@ public class MainClass {
 
     private static void getUsers() {
         try {
-            HttpResponse<JsonNode> request = Unirest.get("https://api.angel.co/1/users/batch?ids=51,100")
+            HttpResponse<JsonNode> request = Unirest.get("https://api.angel.co/1/startups/batch?ids=51,100")
                     .asJson();
             JsonNode node = request.getBody();
             System.out.println(node.isArray());

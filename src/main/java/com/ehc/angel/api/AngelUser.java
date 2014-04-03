@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Bean2Excel {
+public class AngelUser {
   private HSSFWorkbook workbook;
   private HSSFFont boldFont;
   private HSSFDataFormat format;
@@ -25,31 +25,31 @@ public class Bean2Excel {
   private int sheetNumber = 1;
 
   ReportColumn[] reportColumns = new ReportColumn[]{
-      new ReportColumn("id", "Id", FormatType.INTEGER),
-      new ReportColumn("name", "Name", FormatType.TEXT),
-      new ReportColumn("bio", "BIO", FormatType.TEXT),
-      new ReportColumn("follower_count", "Followers", FormatType.INTEGER),
-      new ReportColumn("angellist_url", "AngelList Url", FormatType.TEXT),
-      new ReportColumn("blog_url", "Blog Url", FormatType.TEXT),
-      new ReportColumn("online_bio_url", "Online Bio Url", FormatType.TEXT),
-      new ReportColumn("twitter_url", "Twitter Url", FormatType.TEXT),
-      new ReportColumn("facebook_url", "Facebook Url", FormatType.TEXT),
-      new ReportColumn("linkedin_url", "LinkedIn Url", FormatType.TEXT),
-      new ReportColumn("aboutme_url", "About Me Url", FormatType.TEXT),
-      new ReportColumn("github_url", "Github Url", FormatType.TEXT),
-      new ReportColumn("dribbble_url", "Dribbble Url", FormatType.TEXT),
-      new ReportColumn("behance_url", "Behance Url", FormatType.TEXT),
-      new ReportColumn("what_ive_built", "What Ive Built", FormatType.TEXT),
-      new ReportColumn("location", "Location", FormatType.TEXT),
-      new ReportColumn("role", "Role", FormatType.TEXT),
-      new ReportColumn("investor", "Is Investor?", FormatType.TEXT)
+      new ReportColumn("id", "Id", FormatType.formatType.INTEGER),
+      new ReportColumn("name", "Name", FormatType.formatType.TEXT),
+      new ReportColumn("bio", "BIO", FormatType.formatType.TEXT),
+      new ReportColumn("follower_count", "Followers", FormatType.formatType.INTEGER),
+      new ReportColumn("angellist_url", "AngelList Url", FormatType.formatType.TEXT),
+      new ReportColumn("blog_url", "Blog Url", FormatType.formatType.TEXT),
+      new ReportColumn("online_bio_url", "Online Bio Url", FormatType.formatType.TEXT),
+      new ReportColumn("twitter_url", "Twitter Url", FormatType.formatType.TEXT),
+      new ReportColumn("facebook_url", "Facebook Url", FormatType.formatType.TEXT),
+      new ReportColumn("linkedin_url", "LinkedIn Url", FormatType.formatType.TEXT),
+      new ReportColumn("aboutme_url", "About Me Url", FormatType.formatType.TEXT),
+      new ReportColumn("github_url", "Github Url", FormatType.formatType.TEXT),
+      new ReportColumn("dribbble_url", "Dribbble Url", FormatType.formatType.TEXT),
+      new ReportColumn("behance_url", "Behance Url", FormatType.formatType.TEXT),
+      new ReportColumn("what_ive_built", "What Ive Built", FormatType.formatType.TEXT),
+      new ReportColumn("location", "Location", FormatType.formatType.TEXT),
+      new ReportColumn("role", "Role", FormatType.formatType.TEXT),
+      new ReportColumn("investor", "Is Investor?", FormatType.formatType.TEXT)
   };
 
   ArrayList<User> users = new ArrayList<User>();
 
   public static void main(String[] args) {
     try {
-      Bean2Excel oReport = new Bean2Excel();
+      AngelUser oReport = new AngelUser();
       File file = new File("./angel-list.xls");
       if (!file.exists()) {
         file.createNewFile();
@@ -78,7 +78,7 @@ public class Bean2Excel {
 
   private void getUsers(String queryString) {
     try {
-      HttpResponse<JsonNode> request = Unirest.get("https://api.angel.co/1/users/batch?ids=" + queryString)
+      HttpResponse<JsonNode> request = Unirest.get("https://api.angel.co/1/startups/batch?ids=" + queryString)
           .asJson();
       JsonNode node = request.getBody();
       System.out.println(node.isArray());
@@ -96,7 +96,7 @@ public class Bean2Excel {
     }
   }
 
-  public Bean2Excel() {
+  public AngelUser() {
     workbook = new HSSFWorkbook();
     boldFont = workbook.createFont();
     boldFont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
@@ -111,7 +111,7 @@ public class Bean2Excel {
     try {
       row = sheet.createRow(currentRow);
       for (int i = 0; i < numCols; i++) {
-        writeCell(row, i, columns[i].getHeader(), FormatType.TEXT,
+        writeCell(row, i, columns[i].getHeader(), FormatType.formatType.TEXT,
             null, this.boldFont);
       }
       currentRow++; // increment the spreadsheet row before we step into
@@ -146,7 +146,7 @@ public class Bean2Excel {
   }
 
   private void writeCell(HSSFRow row, int col, Object value,
-                         FormatType formatType, Short bgColor, HSSFFont font) throws Exception {
+                         FormatType.formatType formatType, Short bgColor, HSSFFont font) throws Exception {
 
     HSSFCell cell = HSSFCellUtil.createCell(row, col, null);
     if (value == null) {
@@ -200,7 +200,4 @@ public class Bean2Excel {
     }
   }
 
-  public enum FormatType {
-    TEXT, INTEGER, FLOAT, DATE, MONEY, PERCENTAGE
-  }
 }
