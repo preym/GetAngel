@@ -10,10 +10,8 @@ import org.apache.poi.hssf.util.HSSFCellUtil;
 import org.apache.poi.ss.util.CellUtil;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -44,18 +42,19 @@ public class Bean2Excel {
       new ReportColumn("what_ive_built", "What Ive Built", FormatType.TEXT),
       new ReportColumn("location", "Location", FormatType.TEXT),
       new ReportColumn("role", "Role", FormatType.TEXT),
-//          new ReportColumn("skill", "Skills", FormatType.TEXT),
       new ReportColumn("investor", "Is Investor?", FormatType.TEXT)
   };
 
   ArrayList<User> users = new ArrayList<User>();
 
   public static void main(String[] args) {
-
     try {
-      // Create the report object
       Bean2Excel oReport = new Bean2Excel();
-
+      File file = new File("./angel-list.xls");
+      if (!file.exists()) {
+        file.createNewFile();
+      }
+      FileOutputStream output = new FileOutputStream(file, true);
       for (; endIndex <= 500; ) {
         String queryString = "";
         for (int index = startIndex; index <= endIndex; index++) {
@@ -64,35 +63,18 @@ public class Bean2Excel {
         oReport.getUsers(queryString);
         startIndex = endIndex + 1;
         endIndex = endIndex + 50;
-
-
         if (oReport.users.get(oReport.users.size() - 1).getId() % 100 == 0) {
           oReport.addSheet(oReport.users, oReport.reportColumns, "sheet" + oReport.sheetNumber++);
-          System.out.println("Sheet NUm:" + oReport.sheetNumber);
-
-          File file = new File("./angel-list.xls");
-          if (!file.exists()) {
-            file.createNewFile();
-          }
-          OutputStream output = new FileOutputStream(file, true);
-          oReport.write(output);
-          output.flush();
-          output.close();
           oReport.users.clear();
-
         }
       }
-    } catch (ParseException e) {
-      e.printStackTrace();
-    } catch (FileNotFoundException e) {
-      e.printStackTrace();
+      oReport.write(output);
+      output.flush();
+      output.close();
     } catch (Exception e) {
       e.printStackTrace();
     }
-
-
   }
-
 
   private void getUsers(String queryString) {
     try {
@@ -153,7 +135,6 @@ public class Bean2Excel {
       System.err.println("Caught Generate Error exception: "
           + e.getMessage());
     }
-
   }
 
   public HSSFFont boldFont() {
@@ -217,7 +198,6 @@ public class Bean2Excel {
       HSSFCellUtil.setCellStyleProperty(cell, workbook,
           CellUtil.FILL_PATTERN, HSSFCellStyle.SOLID_FOREGROUND);
     }
-
   }
 
   public enum FormatType {
