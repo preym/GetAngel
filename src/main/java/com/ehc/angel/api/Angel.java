@@ -10,8 +10,10 @@ import org.apache.poi.hssf.util.HSSFCellUtil;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.ss.util.CellUtil;
 
-import java.io.*;
-import java.text.ParseException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -86,22 +88,26 @@ public class Angel {
     try {
       Angel oReport = new Angel();
       String queryString = "";
-      for (id = 151; id <= 200; id++) {
+      for (id = 201; id <= 250; id++) {
         queryString = queryString + id + ",";
       }
       oReport.getUsers(queryString);
+
+      FileInputStream fis = new FileInputStream(file);
+
+      workbook = new HSSFWorkbook(fis, true);
+      sheet = workbook.getSheet("Sheet1");
+
+
       oReport.writeData(oReport.users);
+      fis.close();
+      oReport.output = new FileOutputStream(file);
       oReport.write(oReport.output);
       oReport.output.flush();
       oReport.output.close();
-    } catch (ParseException e) {
-      e.printStackTrace();
-    } catch (FileNotFoundException e) {
-      e.printStackTrace();
     } catch (Exception e) {
       e.printStackTrace();
     }
-
   }
 
 
@@ -118,6 +124,8 @@ public class Angel {
       }
       rowCount++;
       System.out.println("row count is:" + sheet.getLastRowNum());
+//      output.flush();
+//      output.close();
 
     } catch (Exception e) {
       System.err.println("Caught Generate Error exception: "
@@ -175,8 +183,17 @@ public class Angel {
   }
 
   public Angel() {
-    if (!isExist)
+    if (!isExist) {
       this.addSheet();
+      try {
+        this.write(output);
+        output.flush();
+        output.close();
+      } catch (Exception e) {
+        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+      }
+    }
+
   }
 
 
