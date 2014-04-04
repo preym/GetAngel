@@ -7,7 +7,6 @@ import com.mashape.unirest.http.Unirest;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.hssf.util.HSSFCellUtil;
-import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.ss.util.CellUtil;
 
 import java.io.File;
@@ -23,13 +22,10 @@ public class Angel {
   private static HSSFFont boldFont;
   private static HSSFDataFormat format;
   private static int id;
-  private static int rowCount = 0;
-  private static boolean isExist = false;
-
-  HSSFRow row;
-  static HSSFSheet sheet;
-
+  private HSSFRow row;
+  private static HSSFSheet sheet;
   public static File file = new File("./angel-list.xls");
+
   ReportColumn[] reportColumns = new ReportColumn[]{
       new ReportColumn("id", "Id", FormatType.INTEGER),
       new ReportColumn("name", "Name", FormatType.TEXT),
@@ -52,81 +48,42 @@ public class Angel {
   };
 
   ArrayList<User> users = new ArrayList<User>();
-  static FileOutputStream output;
-
-
-  static {
-    try {
-      if (file.exists()) {
-        System.out.println("File Existed");
-        POIFSFileSystem fileSystem = new POIFSFileSystem(new FileInputStream(file));
-        workbook = new HSSFWorkbook(fileSystem);
-        System.out.println("workbook:" + workbook);
-      } else {
-        System.out.println("File Not Existed");
-        workbook = new HSSFWorkbook();
-      }
-      boldFont = workbook.createFont();
-      boldFont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
-      format = workbook.createDataFormat();
-
-      sheet = workbook.getSheet("Sheet1");
-      isExist = true;
-      if (sheet == null) {
-        isExist = false;
-        System.out.println("sheet null");
-        sheet = workbook.createSheet("Sheet1");
-      }
-      output = new FileOutputStream(file, true);
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
-  }
-
 
   public static void main(String[] args) {
     try {
       Angel oReport = new Angel();
       String queryString = "";
-      for (id = 201; id <= 250; id++) {
+      for (id = 251; id <= 300; id++) {
         queryString = queryString + id + ",";
       }
-      oReport.getUsers(queryString);
-
-      FileInputStream fis = new FileInputStream(file);
-
-      workbook = new HSSFWorkbook(fis, true);
-      sheet = workbook.getSheet("Sheet1");
-
-
-      oReport.writeData(oReport.users);
-      fis.close();
-      oReport.output = new FileOutputStream(file);
-      oReport.write(oReport.output);
-      oReport.output.flush();
-      oReport.output.close();
+      oReport.getUsersFromServer(queryString);
+      appendDataToFile(oReport);
     } catch (Exception e) {
       e.printStackTrace();
     }
   }
 
+  private static void appendDataToFile(Angel oReport) throws Exception {
+    FileInputStream fis = new FileInputStream(file);
+    workbook = new HSSFWorkbook(fis, true);
+    sheet = workbook.getSheet("Sheet1");
+    oReport.appendDataToWorkbook(oReport.users);
+    fis.close();
+    FileOutputStream outputStream = new FileOutputStream(file);
+    oReport.write(outputStream);
+    outputStream.flush();
+    outputStream.close();
+  }
 
-  public void addSheet() {
-    System.out.println("In addSheet Method");
 
+  public void addSheetToWorkbook() {
     int numCols = reportColumns.length;
     try {
-      row = sheet.createRow(rowCount);
+      row = sheet.createRow(0);
       for (int i = 0; i < numCols; i++) {
-        System.out.println("Writing Column headings");
         writeCell(row, i, reportColumns[i].getHeader(), FormatType.TEXT,
             null, this.boldFont);
       }
-      rowCount++;
-      System.out.println("row count is:" + sheet.getLastRowNum());
-//      output.flush();
-//      output.close();
-
     } catch (Exception e) {
       System.err.println("Caught Generate Error exception: "
           + e.getMessage());
@@ -134,16 +91,12 @@ public class Angel {
   }
 
 
-  public void writeData(List<?> data) {
-    System.out.println("in WriteData");
+  public void appendDataToWorkbook(List<?> data) {
     try {
       for (int i = 0; i < data.size(); i++) {
-        System.out.println("iterate:" + i);
         row = sheet.createRow(sheet.getLastRowNum() + 1);
-        System.out.println("row count is:" + sheet.getLastRowNum());
         Object bean = data.get(i);
         for (int y = 0; y < reportColumns.length; y++) {
-          System.out.println("writing each cell");
           Object value = PropertyUtils.getProperty(bean,
               reportColumns[y].getMethod());
           writeCell(row, y, value, reportColumns[y].getType(),
@@ -154,15 +107,13 @@ public class Angel {
       e.printStackTrace();
     }
 
-
     // Autosize columns
     for (int i = 0; i < reportColumns.length; i++) {
-      System.out.println("Autosize each cell");
       sheet.autoSizeColumn((short) i);
     }
   }
 
-  private void getUsers(String queryString) {
+  private void getUsersFromServer(String queryString) {
     try {
       HttpResponse<JsonNode> request = Unirest.get("https://api.angel.co/1/users/batch?ids=" + queryString)
           .asJson();
@@ -183,41 +134,23 @@ public class Angel {
   }
 
   public Angel() {
-    if (!isExist) {
-      this.addSheet();
-      try {
-        this.write(output);
-        output.flush();
-        output.close();
-      } catch (Exception e) {
-        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+    try {
+      if (!file.exists()) {
+        FileOutputStream fos = new FileOutputStream(file);
+        workbook = new HSSFWorkbook();
+        boldFont = workbook.createFont();
+        boldFont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
+        format = workbook.createDataFormat();
+        sheet = workbook.createSheet("Sheet1");
+        this.addSheetToWorkbook();
+        this.write(fos);
+        fos.flush();
+        fos.close();
       }
+    } catch (Exception e) {
+      e.printStackTrace();
     }
-
   }
-
-
-  // increment the spreadsheet row before we step into
-  // Write report rows
-//      for (int i = 0; i < data.size(); i++) {
-//        // create a row in the spreadsheet
-//        row = sheet.createRow(currentRow++);
-//        // get the bean for the current row
-//        Object bean = data.get(i);
-//        // For each column object, create a column on the current row
-//        for (int y = 0; y < numCols; y++) {
-//          Object value = PropertyUtils.getProperty(bean,
-//              columns[y].getMethod());
-//          writeCell(row, y, value, columns[y].getType(),
-//              columns[y].getColor(), columns[y].getFont());
-//        }
-//      }
-
-//      // Autosize columns
-//      for (int i = 0; i < numCols; i++) {
-//        sheet.autoSizeColumn((short) i);
-//      }
-
 
   public HSSFFont boldFont() {
     return boldFont;
