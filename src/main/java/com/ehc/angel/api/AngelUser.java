@@ -10,6 +10,7 @@ import org.apache.poi.hssf.util.HSSFCellUtil;
 import org.apache.poi.ss.util.CellUtil;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
@@ -17,12 +18,14 @@ import java.util.Date;
 import java.util.List;
 
 public class AngelUser {
-  private HSSFWorkbook workbook;
-  private HSSFFont boldFont;
-  private HSSFDataFormat format;
-  private static int startIndex = 1;
-  private static int endIndex = 50;
-  private int sheetNumber = 1;
+  private static HSSFWorkbook workbook;
+  private static HSSFFont boldFont;
+  private static HSSFDataFormat format;
+  private HSSFRow row;
+  private static HSSFSheet sheet;
+  public static File file = new File("./angel-list.xls");
+  static int startIndex = 1;
+  static int endIndex = 50;
 
   ReportColumn[] reportColumns = new ReportColumn[]{
       new ReportColumn("id", "Id", FormatType.formatType.INTEGER),
@@ -50,45 +53,121 @@ public class AngelUser {
   public static void main(String[] args) {
     try {
       AngelUser oReport = new AngelUser();
-      File file = new File("./angel-list.xls");
-      if (!file.exists()) {
-        file.createNewFile();
-      }
-      FileOutputStream output = new FileOutputStream(file, true);
-      for (; endIndex <= 500; ) {
+      startIndex = (int) oReport.getLastUser() + 1;
+      endIndex = startIndex + 49;
+      for (; endIndex <= 1000; ) {
         String queryString = "";
-        for (int index = startIndex; index <= endIndex; index++) {
-          queryString = queryString + index + ",";
+        for (int id = startIndex; id <= endIndex; id++) {
+          queryString = queryString + id + ",";
         }
-        oReport.getUsers(queryString);
+        oReport.getUsersFromServer(queryString);
+        appendDataToFile(oReport);
         startIndex = endIndex + 1;
         endIndex = endIndex + 50;
         if (oReport.users.get(oReport.users.size() - 1).getId() % 100 == 0) {
-          oReport.addSheet(oReport.users, oReport.reportColumns, "sheet" + oReport.sheetNumber++);
-          oReport.users.clear();
+          FileInputStream fis = new FileInputStream(file);
+          workbook = new HSSFWorkbook(fis);
+          fis.close();
+          createNewSheet(oReport);
         }
+        oReport.users.clear();
       }
-      oReport.write(output);
-      output.flush();
-      output.close();
     } catch (Exception e) {
       e.printStackTrace();
     }
   }
 
-  private void getUsers(String queryString) {
+  private static void createNewSheet(AngelUser oReport) throws Exception {
+    FileOutputStream fos = new FileOutputStream(file);
+    boldFont = workbook.createFont();
+    boldFont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
+    format = workbook.createDataFormat();
+    sheet = workbook.createSheet("Sheet" + (workbook.getNumberOfSheets() + 1));
+    oReport.addSheetToWorkbook();
+    oReport.write(fos);
+    fos.flush();
+    fos.close();
+  }
+
+  private double getLastUser() {
+    double lastUserIndex = 0;
     try {
-      HttpResponse<JsonNode> request = Unirest.get("https://api.angel.co/1/startups/batch?ids=" + queryString)
+      FileInputStream fis = new FileInputStream(file);
+      workbook = new HSSFWorkbook(fis);
+      fis.close();
+      sheet = workbook.getSheetAt(workbook.getNumberOfSheets() - 1);
+      int rowIndex = sheet.getLastRowNum();
+      if (rowIndex == 0) {
+        sheet = workbook.getSheetAt(workbook.getNumberOfSheets() - 2);
+      }
+      row = sheet.getRow(sheet.getLastRowNum());
+      lastUserIndex = row.getCell(0).getNumericCellValue();
+    } catch (Exception e) {
+      System.out.println(e.getMessage());
+    } finally {
+      return lastUserIndex;
+    }
+  }
+
+  private static void appendDataToFile(AngelUser oReport) throws Exception {
+    FileInputStream fis = new FileInputStream(file);
+    workbook = new HSSFWorkbook(fis, true);
+    sheet = workbook.getSheetAt(workbook.getNumberOfSheets() - 1);
+    oReport.appendDataToWorkbook(oReport.users);
+    fis.close();
+    FileOutputStream outputStream = new FileOutputStream(file);
+    oReport.write(outputStream);
+    outputStream.flush();
+    outputStream.close();
+  }
+
+  public void addSheetToWorkbook() {
+    int numCols = reportColumns.length;
+    try {
+      row = sheet.createRow(0);
+      for (int i = 0; i < numCols; i++) {
+        writeCell(row, i, reportColumns[i].getHeader(), FormatType.formatType.TEXT,
+            null, this.boldFont);
+      }
+    } catch (Exception e) {
+      System.err.println("Caught Generate Error exception: "
+          + e.getMessage());
+    }
+  }
+
+  public void appendDataToWorkbook(List<?> data) {
+    try {
+      for (int i = 0; i < data.size(); i++) {
+        row = sheet.createRow(sheet.getLastRowNum() + 1);
+        Object bean = data.get(i);
+        for (int y = 0; y < reportColumns.length; y++) {
+          Object value = PropertyUtils.getProperty(bean,
+              reportColumns[y].getMethod());
+          writeCell(row, y, value, reportColumns[y].getType(),
+              reportColumns[y].getColor(), reportColumns[y].getFont());
+        }
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+
+    // Autosize columns
+    for (int i = 0; i < reportColumns.length; i++) {
+      sheet.autoSizeColumn((short) i);
+    }
+  }
+
+  private void getUsersFromServer(String queryString) {
+    try {
+      HttpResponse<JsonNode> request = Unirest.get("https://api.angel.co/1/users/batch?ids=" + queryString)
           .asJson();
       JsonNode node = request.getBody();
-      System.out.println(node.isArray());
       System.out.println(node.toString());
-      System.out.println(request);
       Gson gson = new Gson();
-      User[] userList = gson.fromJson(node.toString(), User[].class);
-      if (userList != null) {
-        for (User user : userList) {
-          users.add(user);
+      User[] user = gson.fromJson(node.toString(), User[].class);
+      if (user != null && user.length > 0) {
+        for (User eachUser : user) {
+          users.add(eachUser);
         }
       }
     } catch (Exception e) {
@@ -97,43 +176,21 @@ public class AngelUser {
   }
 
   public AngelUser() {
-    workbook = new HSSFWorkbook();
-    boldFont = workbook.createFont();
-    boldFont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
-    format = workbook.createDataFormat();
-  }
-
-  public void addSheet(List<?> data, ReportColumn[] columns, String sheetName) {
-    HSSFSheet sheet = workbook.createSheet(sheetName);
-    int numCols = columns.length;
-    int currentRow = 0;
-    HSSFRow row;
     try {
-      row = sheet.createRow(currentRow);
-      for (int i = 0; i < numCols; i++) {
-        writeCell(row, i, columns[i].getHeader(), FormatType.formatType.TEXT,
-            null, this.boldFont);
+      if (!file.exists()) {
+        FileOutputStream fos = new FileOutputStream(file);
+        workbook = new HSSFWorkbook();
+        boldFont = workbook.createFont();
+        boldFont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
+        format = workbook.createDataFormat();
+        sheet = workbook.createSheet("Sheet1");
+        this.addSheetToWorkbook();
+        this.write(fos);
+        fos.flush();
+        fos.close();
       }
-      currentRow++; // increment the spreadsheet row before we step into
-      for (int i = 0; i < data.size(); i++) {
-        row = sheet.createRow(currentRow++);
-        Object bean = data.get(i);
-        for (int y = 0; y < numCols; y++) {
-          Object value = PropertyUtils.getProperty(bean,
-              columns[y].getMethod());
-          writeCell(row, y, value, columns[y].getType(),
-              columns[y].getColor(), columns[y].getFont());
-        }
-      }
-
-      // Autosize columns
-      for (int i = 0; i < numCols; i++) {
-        sheet.autoSizeColumn((short) i);
-      }
-
     } catch (Exception e) {
-      System.err.println("Caught Generate Error exception: "
-          + e.getMessage());
+      e.printStackTrace();
     }
   }
 
@@ -198,6 +255,8 @@ public class AngelUser {
       HSSFCellUtil.setCellStyleProperty(cell, workbook,
           CellUtil.FILL_PATTERN, HSSFCellStyle.SOLID_FOREGROUND);
     }
+
   }
+
 
 }
