@@ -24,28 +24,31 @@ public class AngelUser {
   private HSSFRow row;
   private static HSSFSheet sheet;
   public static File file = new File("./angel-list.xls");
-  static int startIndex = 1;
-  static int endIndex = 50;
+  static long startIndex = 1;
+  static long endIndex = 50;
+  private Date date;
+  private int noOfRequests = 0;
+
 
   ReportColumn[] reportColumns = new ReportColumn[]{
       new ReportColumn("id", "Id", FormatType.formatType.INTEGER),
       new ReportColumn("name", "Name", FormatType.formatType.TEXT),
-      new ReportColumn("bio", "BIO", FormatType.formatType.TEXT),
-      new ReportColumn("follower_count", "Followers", FormatType.formatType.INTEGER),
+      new ReportColumn("location", "Location", FormatType.formatType.TEXT),
       new ReportColumn("angellist_url", "AngelList Url", FormatType.formatType.TEXT),
-      new ReportColumn("blog_url", "Blog Url", FormatType.formatType.TEXT),
-      new ReportColumn("online_bio_url", "Online Bio Url", FormatType.formatType.TEXT),
       new ReportColumn("twitter_url", "Twitter Url", FormatType.formatType.TEXT),
-      new ReportColumn("facebook_url", "Facebook Url", FormatType.formatType.TEXT),
       new ReportColumn("linkedin_url", "LinkedIn Url", FormatType.formatType.TEXT),
+      new ReportColumn("facebook_url", "Facebook Url", FormatType.formatType.TEXT),
       new ReportColumn("aboutme_url", "About Me Url", FormatType.formatType.TEXT),
       new ReportColumn("github_url", "Github Url", FormatType.formatType.TEXT),
+      new ReportColumn("role", "Role", FormatType.formatType.TEXT),
+      new ReportColumn("investor", "Is Investor?", FormatType.formatType.TEXT),
+      new ReportColumn("bio", "BIO", FormatType.formatType.TEXT),
+      new ReportColumn("follower_count", "Followers", FormatType.formatType.INTEGER),
+      new ReportColumn("blog_url", "Blog Url", FormatType.formatType.TEXT),
+      new ReportColumn("online_bio_url", "Online Bio Url", FormatType.formatType.TEXT),
       new ReportColumn("dribbble_url", "Dribbble Url", FormatType.formatType.TEXT),
       new ReportColumn("behance_url", "Behance Url", FormatType.formatType.TEXT),
-      new ReportColumn("what_ive_built", "What Ive Built", FormatType.formatType.TEXT),
-      new ReportColumn("location", "Location", FormatType.formatType.TEXT),
-      new ReportColumn("role", "Role", FormatType.formatType.TEXT),
-      new ReportColumn("investor", "Is Investor?", FormatType.formatType.TEXT)
+      new ReportColumn("what_ive_built", "What Ive Built", FormatType.formatType.TEXT)
   };
 
   ArrayList<User> users = new ArrayList<User>();
@@ -53,28 +56,44 @@ public class AngelUser {
   public static void main(String[] args) {
     try {
       AngelUser oReport = new AngelUser();
-      startIndex = (int) oReport.getLastUser() + 1;
+      startIndex = (long) oReport.getLastUser() + 1;
       endIndex = startIndex + 49;
-      for (; endIndex <= 1000; ) {
+      boolean exist = true;
+      for (; exist; ) {
         String queryString = "";
-        for (int id = startIndex; id <= endIndex; id++) {
+        for (long id = startIndex; id <= endIndex; id++) {
           queryString = queryString + id + ",";
         }
-        oReport.getUsersFromServer(queryString);
-        appendDataToFile(oReport);
-        startIndex = endIndex + 1;
-        endIndex = endIndex + 50;
-        if (oReport.users.get(oReport.users.size() - 1).getId() % 100 == 0) {
-          FileInputStream fis = new FileInputStream(file);
-          workbook = new HSSFWorkbook(fis);
-          fis.close();
-          createNewSheet(oReport);
+        if (oReport.noOfRequests < 1000) {
+          exist = oReport.getUsersFromServer(queryString);
+          oReport.noOfRequests++;
+          System.out.println("No Of Requests:" + oReport.noOfRequests);
+          appendDataToFile(oReport);
+          incrementQueryString();
+          if (oReport.users.get(oReport.users.size() - 1).getId() % 1000 == 0) {
+            changeSheet(oReport);
+          }
+          oReport.users.clear();
+        } else {
+          Thread.currentThread().wait(70 * 60000);
+          oReport.noOfRequests = 0;
         }
-        oReport.users.clear();
       }
     } catch (Exception e) {
       e.printStackTrace();
     }
+  }
+
+  private static void changeSheet(AngelUser oReport) throws Exception {
+    FileInputStream fis = new FileInputStream(file);
+    workbook = new HSSFWorkbook(fis);
+    fis.close();
+    createNewSheet(oReport);
+  }
+
+  private static void incrementQueryString() {
+    startIndex = endIndex + 1;
+    endIndex = endIndex + 50;
   }
 
   private static void createNewSheet(AngelUser oReport) throws Exception {
@@ -96,7 +115,7 @@ public class AngelUser {
       workbook = new HSSFWorkbook(fis);
       fis.close();
       sheet = workbook.getSheetAt(workbook.getNumberOfSheets() - 1);
-      int rowIndex = sheet.getLastRowNum();
+      long rowIndex = sheet.getLastRowNum();
       if (rowIndex == 0) {
         sheet = workbook.getSheetAt(workbook.getNumberOfSheets() - 2);
       }
@@ -122,7 +141,7 @@ public class AngelUser {
   }
 
   public void addSheetToWorkbook() {
-    int numCols = reportColumns.length;
+    long numCols = reportColumns.length;
     try {
       row = sheet.createRow(0);
       for (int i = 0; i < numCols; i++) {
@@ -152,12 +171,12 @@ public class AngelUser {
     }
 
     // Autosize columns
-    for (int i = 0; i < reportColumns.length; i++) {
+    for (long i = 0; i < reportColumns.length; i++) {
       sheet.autoSizeColumn((short) i);
     }
   }
 
-  private void getUsersFromServer(String queryString) {
+  private boolean getUsersFromServer(String queryString) {
     try {
       HttpResponse<JsonNode> request = Unirest.get("https://api.angel.co/1/users/batch?ids=" + queryString)
           .asJson();
@@ -169,13 +188,18 @@ public class AngelUser {
         for (User eachUser : user) {
           users.add(eachUser);
         }
+        return true;
+      } else {
+        return false;
       }
     } catch (Exception e) {
       e.printStackTrace();
+      return false;
     }
   }
 
   public AngelUser() {
+    date = new Date();
     try {
       if (!file.exists()) {
         FileOutputStream fos = new FileOutputStream(file);
