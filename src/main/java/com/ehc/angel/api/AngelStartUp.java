@@ -30,6 +30,7 @@ public class AngelStartUp {
   private HSSFDataFormat format;
   private HSSFRow row;
   private static HSSFSheet sheet;
+  private int noOfRequests = 0;
 
   ReportColumn[] reportColumns = new ReportColumn[]{
       new ReportColumn("id", "Id", FormatType.formatType.INTEGER),
@@ -68,7 +69,13 @@ public class AngelStartUp {
       AngelStartUp angelStartUpObj = new AngelStartUp();
       int noOfPages = angelStartUpObj.getStartups(1);
       for (int index = 2; index <= noOfPages; index++) {
-        angelStartUpObj.getStartups(index);
+        if (angelStartUpObj.noOfRequests < 1000) {
+          angelStartUpObj.getStartups(index);
+        } else {
+          index--;
+          Thread.currentThread().wait(70 * 60000);
+          angelStartUpObj.noOfRequests = 0;
+        }
       }
       appendDataToFile(angelStartUpObj);
       angelStartUpObj.startups.clear();
@@ -122,6 +129,7 @@ public class AngelStartUp {
       JsonNode node = request.getBody();
       System.out.println(node.toString());
       Gson gson = new Gson();
+      this.noOfRequests++;
       StartUp startupList = gson.fromJson(node.toString(), StartUp.class);
       if (startupList != null) {
         startups.addAll(startupList.getStartups());

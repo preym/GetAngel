@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="56bd8274-1195-4716-9ba9-741a99862653" name="Default" comment="Restricted to 1000 requests per hour">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/angel-list.xls" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/AngelUser.java" afterPath="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/AngelUser.java" />
+    <list default="true" id="56bd8274-1195-4716-9ba9-741a99862653" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/AngelStartUp.java" afterPath="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/AngelStartUp.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="GetAngel.iws" />
@@ -12,8 +11,8 @@
     <file path="/User.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396525738627" ignored="false" />
     <file path="/MainClass.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396424944540" ignored="false" />
     <file path="/Bean2Excel.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396509020108" ignored="false" />
-    <file path="/Dummy.txt" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396691377998" ignored="false" />
-    <file path="/AngelStartUp.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396685825705" ignored="false" />
+    <file path="/Dummy.txt" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396691422599" ignored="false" />
+    <file path="/AngelStartUp.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396691825539" ignored="false" />
     <file path="/FormateType.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396520217130" ignored="false" />
     <file path="/AngelUser.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396691068240" ignored="false" />
     <file path="/ReportColumn.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396520398397" ignored="false" />
@@ -83,23 +82,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AngelStartUp.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AngelStartUp.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/AngelStartUp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="44" selection-start="3263" selection-end="3263" vertical-scroll-proportion="-28.285715">
+            <state line="76" column="43" selection-start="3535" selection-end="3535" vertical-scroll-proportion="0.47587353">
               <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#3010#3020#0" expanded="false" />
+                <element signature="method#AngelStartUp#0;class#AngelStartUp#0" expanded="false" />
+                <element signature="method#addSheetToWorkbook#0;class#AngelStartUp#0" expanded="false" />
                 <element signature="method#writeCell#0;class#AngelStartUp#0" expanded="false" />
-                <marker date="1396691339857" expanded="true" signature="1670:1909" placeholder="//..." />
-                <marker date="1396691339857" expanded="true" signature="2228:2617" placeholder="//..." />
+                <marker date="1396692048305" expanded="true" signature="4219:4869" placeholder="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AngelUser.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AngelUser.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/AngelUser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="39" selection-start="3340" selection-end="3340" vertical-scroll-proportion="0.74186045">
+            <state line="77" column="39" selection-start="3340" selection-end="3340" vertical-scroll-proportion="-22.785715">
               <folding>
                 <element signature="method#appendDataToFile#0;class#AngelUser#0" expanded="false" />
                 <element signature="method#boldFont#0;class#AngelUser#0" expanded="false" />
@@ -141,8 +143,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/CompanyType.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/StartUp.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Startups.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/AngelStartUp.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/AngelUser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/AngelStartUp.java" />
       </list>
     </option>
   </component>
@@ -201,34 +203,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GetAngel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GetAngel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -496,12 +470,16 @@
       <created>1396684509238</created>
       <updated>1396684509238</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Restricted to 1000 requests per hour">
+      <created>1396691430523</created>
+      <updated>1396691430523</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-4" width="1922" height="1085" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -519,8 +497,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24973261" sideWeight="0.8313641" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35454544" sideWeight="0.21589689" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22771214" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35454544" sideWeight="0.7218045" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2781955" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -579,7 +557,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored AngelStartUp class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Restricted to 1000 requests per hour" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -596,6 +574,7 @@
     <MESSAGE value="Added basic logic for get Angels info." />
     <MESSAGE value="Refactored AngelUser class" />
     <MESSAGE value="Refactored AngelStartUp class" />
+    <MESSAGE value="Restricted to 1000 requests per hour" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -706,24 +685,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/AngelStartUp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="44" selection-start="3263" selection-end="3263" vertical-scroll-proportion="-28.285715">
-          <folding>
-            <element signature="method#writeCell#0;class#AngelStartUp#0" expanded="false" />
-            <marker date="1396691339857" expanded="true" signature="1670:1909" placeholder="//..." />
-            <marker date="1396691339857" expanded="true" signature="2228:2617" placeholder="//..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/AngelUser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="39" selection-start="3340" selection-end="3340" vertical-scroll-proportion="0.74186045">
+        <state line="77" column="39" selection-start="3340" selection-end="3340" vertical-scroll-proportion="-22.785715">
           <folding>
             <element signature="method#appendDataToFile#0;class#AngelUser#0" expanded="false" />
             <element signature="method#boldFont#0;class#AngelUser#0" expanded="false" />
             <element signature="method#write#0;class#AngelUser#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/AngelStartUp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="43" selection-start="3535" selection-end="3535" vertical-scroll-proportion="0.47587353">
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#3010#3020#0" expanded="false" />
+            <element signature="method#AngelStartUp#0;class#AngelStartUp#0" expanded="false" />
+            <element signature="method#addSheetToWorkbook#0;class#AngelStartUp#0" expanded="false" />
+            <element signature="method#writeCell#0;class#AngelStartUp#0" expanded="false" />
+            <marker date="1396692048305" expanded="true" signature="4219:4869" placeholder="{...}" />
           </folding>
         </state>
       </provider>
