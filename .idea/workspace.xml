@@ -1,24 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="56bd8274-1195-4716-9ba9-741a99862653" name="Default" comment="">
+    <list default="true" id="56bd8274-1195-4716-9ba9-741a99862653" name="Default" comment="Restricted to 1000 requests per hour in AngelStartup class">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/AngelStartUp.java" afterPath="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/AngelStartUp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/AngelUser.java" afterPath="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/AngelUser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Role.java" afterPath="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Role.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Skill.java" afterPath="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Skill.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="GetAngel.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/fragment.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396527095006" ignored="false" />
+    <file path="/fragment.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396866400127" ignored="false" />
     <file path="/User.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396525738627" ignored="false" />
     <file path="/MainClass.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396424944540" ignored="false" />
     <file path="/Bean2Excel.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396509020108" ignored="false" />
-    <file path="/Dummy.txt" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396691422599" ignored="false" />
-    <file path="/AngelStartUp.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396691825539" ignored="false" />
+    <file path="/Dummy.txt" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1397017052658" ignored="false" />
+    <file path="/AngelStartUp.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396875989735" ignored="false" />
     <file path="/FormateType.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396520217130" ignored="false" />
     <file path="/AngelUser.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396691068240" ignored="false" />
     <file path="/ReportColumn.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396520398397" ignored="false" />
     <file path="/Startups.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396526270950" ignored="false" />
     <file path="/CompanyType.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396524857841" ignored="false" />
     <file path="/StartUp.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396528246809" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/gen/com/MDAligne/MDiPass/R.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396863165062" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/gen/com/MDAligne/MDiPass/Manifest.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396863165644" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/res/layout/login.xml" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="/login.xml" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396849115235" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/AndroidManifest.xml" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/gen/com/MDAligne/MDiPass/BuildConfig.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396851478164" ignored="false" />
+    <file path="/ReferAFriendActivity.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396850197197" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/src/main/java/com/MDAligne/MDiPass/ReferAFriendActivity.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/.idea/misc.xml" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396851455779" ignored="false" />
+    <file path="/a.dummy" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396862857081" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/src/main/java/com/MDAligne/MDiPass/LoginActivity.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/res/layout-land/dashboard.xml" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/res/layout-land/dashboard_options.xml" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/res/values/analytics.xml" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/src/main/java/com/MDAligne/MDiPass/Storage.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/src/main/java/com/MDAligne/MDiPass/DashboardAdapter.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/src/main/java/com/MDAligne/MDiPass/ProviderLocatorActivity.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/src/main/java/com/MDAligne/MDiPass/CallbackInterface.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/src/main/java/com/MDAligne/MDiPass/MdiPassActivity.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/src/main/java/com/MDAligne/MDiPass/Logger.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/res/layout/id_page.xml" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/src/main/java/com/MDAligne/MDiPass/MDAligneWebServiceModel.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/res/layout/info.xml" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/src/main/java/com/MDAligne/MDiPass/DashboardActivity.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/res/layout/dashboard_options.xml" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/src/main/java/com/MDAligne/MDiPass/InfoActivity.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/res/layout/dashboard.xml" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/src/main/java/com/MDAligne/MDiPass/IdPageActivity.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/src/main/java/com/MDAligne/MDiPass/ActionOverflowActivity.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/res/layout/refer_friend.xml" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/res/layout/list.xml" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/res/layout/list_options.xml" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/res/values/strings.xml" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/res/values/colors.xml" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/res/values/environment.xml" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/res/values/style.xml" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/build.xml" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/project.properties" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../MDiPass/pom.xml" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396864238933" ignored="false" />
+    <file path="$PROJECT_DIR$/../Sample/res/values/strings.xml" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396866370756" ignored="false" />
+    <file path="$PROJECT_DIR$/../Sample/AndroidManifest.xml" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396866370756" ignored="false" />
+    <file path="$PROJECT_DIR$/../Sample/build.xml" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396866371110" ignored="false" />
+    <file path="$PROJECT_DIR$/../Sample/src/com/example/Sample/MyActivity.java" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396866371110" ignored="false" />
+    <file path="$PROJECT_DIR$/../Sample/res/layout/main.xml" changelist="56bd8274-1195-4716-9ba9-741a99862653" time="1396866371110" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,31 +129,98 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AngelStartUp.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AngelStartUp.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/AngelStartUp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="43" selection-start="3535" selection-end="3535" vertical-scroll-proportion="0.47587353">
+            <state line="143" column="14" selection-start="5336" selection-end="5336" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="false" />
-                <element signature="e#3010#3020#0" expanded="false" />
+                <element signature="e#3037#3047#0" expanded="false" />
                 <element signature="method#AngelStartUp#0;class#AngelStartUp#0" expanded="false" />
                 <element signature="method#addSheetToWorkbook#0;class#AngelStartUp#0" expanded="false" />
                 <element signature="method#writeCell#0;class#AngelStartUp#0" expanded="false" />
-                <marker date="1396692048305" expanded="true" signature="4219:4869" placeholder="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AngelUser.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AngelUser.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/AngelUser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="39" selection-start="3340" selection-end="3340" vertical-scroll-proportion="-22.785715">
-              <folding>
-                <element signature="method#appendDataToFile#0;class#AngelUser#0" expanded="false" />
-                <element signature="method#boldFont#0;class#AngelUser#0" expanded="false" />
-                <element signature="method#write#0;class#AngelUser#0" expanded="false" />
-              </folding>
+            <state line="180" column="0" selection-start="6536" selection-end="6536" vertical-scroll-proportion="0.64444447">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Location.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Location.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="13" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainClass.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/MainClass.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="0" selection-start="980" selection-end="980" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReportColumn.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/ReportColumn.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="9" selection-start="862" selection-end="862" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Role.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Role.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="13" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Skill.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Skill.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="13" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StartUp.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/StartUp.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="26" selection-start="153" selection-end="153" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Startups.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Startups.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="77" column="5" selection-start="2169" selection-end="2169" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="17" selection-start="355" selection-end="355" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -129,8 +243,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Location.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/MainClass.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/User.java" />
@@ -143,6 +255,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/CompanyType.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/StartUp.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Startups.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Role.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Skill.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/AngelUser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ehc/angel/api/AngelStartUp.java" />
       </list>
@@ -187,7 +301,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -209,6 +322,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -219,15 +333,16 @@
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../GeoFencingDemo" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -324,6 +439,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -350,19 +478,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -474,7 +589,11 @@
       <created>1396691430523</created>
       <updated>1396691430523</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Restricted to 1000 requests per hour in AngelStartup class">
+      <created>1396695147246</created>
+      <updated>1396695147246</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -484,7 +603,6 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7841031" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle View" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -497,8 +615,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24973261" sideWeight="0.8313641" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35454544" sideWeight="0.7218045" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2781955" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1459893" sideWeight="0.7089152" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29108486" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -507,6 +625,7 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7841031" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -557,7 +676,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Restricted to 1000 requests per hour" />
+    <option name="LAST_COMMIT_MESSAGE" value="Restricted to 1000 requests per hour in AngelStartup class" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -575,6 +694,7 @@
     <MESSAGE value="Refactored AngelUser class" />
     <MESSAGE value="Refactored AngelStartUp class" />
     <MESSAGE value="Restricted to 1000 requests per hour" />
+    <MESSAGE value="Restricted to 1000 requests per hour in AngelStartup class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -584,27 +704,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="19" selection-start="306" selection-end="1167" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Role.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="13" selection-start="66" selection-end="66" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Skill.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="13" selection-start="66" selection-end="66" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="38" column="19" selection-start="1167" selection-end="1167" vertical-scroll-proportion="0.0">
@@ -612,51 +711,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/MainClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="81" selection-start="488" selection-end="488" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Markets.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="16" selection-start="376" selection-end="376" vertical-scroll-proportion="0.43951166">
-          <folding />
-        </state>
+        <state line="18" column="16" selection-start="376" selection-end="376" vertical-scroll-proportion="0.43951166" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Employee.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/poi/poi/3.9/poi-3.9.jar!/org/apache/poi/hssf/usermodel/HSSFWorkbook.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="1" selection-start="966" selection-end="966" vertical-scroll-proportion="1.1859838">
-          <folding />
-        </state>
+        <state line="129" column="13" selection-start="5276" selection-end="5276" vertical-scroll-proportion="-11.84" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/CompanyType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="76" selection-end="76" vertical-scroll-proportion="0.05929919">
-          <folding />
-        </state>
+        <state line="5" column="0" selection-start="76" selection-end="76" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Employee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="1" selection-start="966" selection-end="966" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/FormatType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="30" selection-start="74" selection-end="84" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Location.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="13" selection-start="42" selection-end="42" vertical-scroll-proportion="0.029569892">
+        <state line="3" column="13" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/User.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/MainClass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="0" selection-start="1106" selection-end="1106" vertical-scroll-proportion="0.029569892">
+        <state line="34" column="0" selection-start="980" selection-end="980" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/ReportColumn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="9" selection-start="862" selection-end="862" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Role.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="13" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Skill.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="13" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/StartUp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="26" selection-start="153" selection-end="153" vertical-scroll-proportion="0.029569892">
+        <state line="8" column="26" selection-start="153" selection-end="153" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -664,49 +781,34 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/Startups.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="77" column="5" selection-start="2169" selection-end="2169" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="method#getCompanyType#0;class#Startups#0" expanded="false" />
-            <element signature="method#getId#0;class#Startups#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/ReportColumn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="9" selection-start="862" selection-end="862" vertical-scroll-proportion="0.37365592">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/FormatType.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="30" selection-start="74" selection-end="84" vertical-scroll-proportion="0.088709675">
+        <state line="15" column="17" selection-start="355" selection-end="355" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/AngelUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="39" selection-start="3340" selection-end="3340" vertical-scroll-proportion="-22.785715">
-          <folding>
-            <element signature="method#appendDataToFile#0;class#AngelUser#0" expanded="false" />
-            <element signature="method#boldFont#0;class#AngelUser#0" expanded="false" />
-            <element signature="method#write#0;class#AngelUser#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/AngelStartUp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="43" selection-start="3535" selection-end="3535" vertical-scroll-proportion="0.47587353">
+        <state line="143" column="14" selection-start="5336" selection-end="5336" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="false" />
-            <element signature="e#3010#3020#0" expanded="false" />
+            <element signature="e#3037#3047#0" expanded="false" />
             <element signature="method#AngelStartUp#0;class#AngelStartUp#0" expanded="false" />
             <element signature="method#addSheetToWorkbook#0;class#AngelStartUp#0" expanded="false" />
             <element signature="method#writeCell#0;class#AngelStartUp#0" expanded="false" />
-            <marker date="1396692048305" expanded="true" signature="4219:4869" placeholder="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ehc/angel/api/AngelUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="180" column="0" selection-start="6536" selection-end="6536" vertical-scroll-proportion="0.64444447">
+          <folding />
         </state>
       </provider>
     </entry>

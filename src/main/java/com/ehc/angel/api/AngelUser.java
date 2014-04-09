@@ -33,16 +33,16 @@ public class AngelUser {
   ReportColumn[] reportColumns = new ReportColumn[]{
       new ReportColumn("id", "Id", FormatType.formatType.INTEGER),
       new ReportColumn("name", "Name", FormatType.formatType.TEXT),
+      new ReportColumn("role", "Role", FormatType.formatType.TEXT),
       new ReportColumn("location", "Location", FormatType.formatType.TEXT),
-      new ReportColumn("angellist_url", "AngelList Url", FormatType.formatType.TEXT),
+      new ReportColumn("bio", "BIO", FormatType.formatType.TEXT),
       new ReportColumn("twitter_url", "Twitter Url", FormatType.formatType.TEXT),
       new ReportColumn("linkedin_url", "LinkedIn Url", FormatType.formatType.TEXT),
+      new ReportColumn("angellist_url", "AngelList Url", FormatType.formatType.TEXT),
       new ReportColumn("facebook_url", "Facebook Url", FormatType.formatType.TEXT),
       new ReportColumn("aboutme_url", "About Me Url", FormatType.formatType.TEXT),
       new ReportColumn("github_url", "Github Url", FormatType.formatType.TEXT),
-      new ReportColumn("role", "Role", FormatType.formatType.TEXT),
       new ReportColumn("investor", "Is Investor?", FormatType.formatType.TEXT),
-      new ReportColumn("bio", "BIO", FormatType.formatType.TEXT),
       new ReportColumn("follower_count", "Followers", FormatType.formatType.INTEGER),
       new ReportColumn("blog_url", "Blog Url", FormatType.formatType.TEXT),
       new ReportColumn("online_bio_url", "Online Bio Url", FormatType.formatType.TEXT),
@@ -70,9 +70,9 @@ public class AngelUser {
           System.out.println("No Of Requests:" + oReport.noOfRequests);
           appendDataToFile(oReport);
           incrementQueryString();
-          if (oReport.users.get(oReport.users.size() - 1).getId() % 1000 == 0) {
-            changeSheet(oReport);
-          }
+//          if (oReport.users.get(oReport.users.size() - 1).getId() % 1000 == 0) {
+//            changeSheet(oReport);
+//          }
           oReport.users.clear();
         } else {
           Thread.currentThread().wait(70 * 60000);
