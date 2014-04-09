@@ -15,6 +15,7 @@ import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -99,6 +100,10 @@ public class AngelStartUp {
   }
 
   public void appendDataToWorkbook(List<?> data) {
+
+    data = filterdata(data);
+
+
     try {
       for (int i = 0; i < data.size(); i++) {
         row = sheet.createRow(sheet.getLastRowNum() + 1);
@@ -118,6 +123,21 @@ public class AngelStartUp {
     for (int i = 0; i < reportColumns.length; i++) {
       sheet.autoSizeColumn((short) i);
     }
+  }
+
+
+  public List<?> filterdata(List<?> data) {
+    List<Startups> list = new ArrayList();
+    Iterator iterator = data.iterator();
+    while (iterator.hasNext()) {
+      Startups startup = ((Startups) iterator.next());
+      String twitterUrl = startup.getTwitter_url();
+      if (twitterUrl != null && !twitterUrl.equals("")) {
+        list.add(startup);
+      }
+    }
+
+    return list;
   }
 
 
