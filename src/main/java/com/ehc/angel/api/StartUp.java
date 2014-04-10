@@ -35,8 +35,8 @@ public class StartUp {
   }
 
   public List getStartups() {
-    System.out.println("Method call");
-    System.out.println(startups);
+//    System.out.println("Method call");
+//    System.out.println(startups);
     return this.startups;
   }
 

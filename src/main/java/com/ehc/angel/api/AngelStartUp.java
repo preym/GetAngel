@@ -15,7 +15,6 @@ import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -36,10 +35,10 @@ public class AngelStartUp {
   ReportColumn[] reportColumns = new ReportColumn[]{
       new ReportColumn("id", "Id", FormatType.formatType.INTEGER),
       new ReportColumn("name", "Name", FormatType.formatType.TEXT),
+      new ReportColumn("twitter_url", "Twitter Url", FormatType.formatType.TEXT),
       new ReportColumn("follower_count", "Followers", FormatType.formatType.INTEGER),
       new ReportColumn("angellist_url", "AngelList Url", FormatType.formatType.TEXT),
       new ReportColumn("blog_url", "Blog Url", FormatType.formatType.TEXT),
-      new ReportColumn("twitter_url", "Twitter Url", FormatType.formatType.TEXT),
       new ReportColumn("linkedin_url", "LinkedIn Url", FormatType.formatType.TEXT),
       new ReportColumn("community_profile", "Community Profile", FormatType.formatType.TEXT),
       new ReportColumn("company_url", "Company Url", FormatType.formatType.TEXT),
@@ -99,11 +98,8 @@ public class AngelStartUp {
 
   }
 
-  public void appendDataToWorkbook(List<?> data) {
-
+  public void appendDataToWorkbook(List<Startups> data) {
     data = filterdata(data);
-
-
     try {
       for (int i = 0; i < data.size(); i++) {
         row = sheet.createRow(sheet.getLastRowNum() + 1);
@@ -126,17 +122,40 @@ public class AngelStartUp {
   }
 
 
-  public List<?> filterdata(List<?> data) {
+  public List<Startups> filterdata(List<Startups> data) {
     List<Startups> list = new ArrayList();
-    Iterator iterator = data.iterator();
-    while (iterator.hasNext()) {
-      Startups startup = ((Startups) iterator.next());
-      String twitterUrl = startup.getTwitter_url();
-      if (twitterUrl != null && !twitterUrl.equals("")) {
-        list.add(startup);
+    for (int index = 0; index < data.size(); index++) {
+      Object twitterValue = null;
+      try {
+        twitterValue = PropertyUtils.getProperty(data.get(index),
+            reportColumns[2].getMethod());
+      } catch (Exception e) {
+        e.printStackTrace();
       }
+      if (twitterValue == null || twitterValue.toString().equals("")) {
+        System.out.println("Value is null:" + twitterValue);
+        continue;
+      }
+      list.add(data.get(index));
     }
 
+
+//    Iterator iterator = data.iterator();
+//    while (iterator.hasNext()) {
+//      System.out.println(iterator.next().toString());
+//      try {
+//        Startups startup = ((Startups) iterator.next());
+//        System.out.println(startup.toString());
+////        String twitterUrl = startup.getTwitter_url();
+////        System.out.println("twitterURL:" + twitterUrl);
+////
+////        if (twitterUrl != null && !twitterUrl.equals("")) {
+//        list.add(startup);
+////        }
+//      } catch (Exception e) {
+//      }
+//    }
+    System.out.println(list);
     return list;
   }
 
@@ -144,10 +163,11 @@ public class AngelStartUp {
   private int getStartups(int pageNumber) {
     int noOfPages = 1;
     try {
+
       HttpResponse<JsonNode> request = Unirest.get("https://api.angel.co/1/tags/1654/startups?page=" + pageNumber)
           .asJson();
       JsonNode node = request.getBody();
-      System.out.println(node.toString());
+//      System.out.println(node.toString());
       Gson gson = new Gson();
       this.noOfRequests++;
       StartUp startupList = gson.fromJson(node.toString(), StartUp.class);
@@ -177,7 +197,7 @@ public class AngelStartUp {
         fos.close();
       }
     } catch (Exception e) {
-      System.out.println(e.getMessage());
+//      System.out.println(e.getMessage());
     }
   }
 

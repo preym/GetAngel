@@ -21,8 +21,8 @@ public class Startups {
   private String name;
   private String product_desc;
   private Number quality;
-  private List screenshots;
-  private String status;
+  private List<ScreenShots> screenshots;
+  private List<Status> status;
   private String thumb_url;
   private String twitter_url;
   private String updated_at;
@@ -33,63 +33,8 @@ public class Startups {
 
   private String companyType;
 
-  public String getCompanyType() {
-    if (company_type != null && company_type.size() > 0) {
-      StringBuffer companyName = new StringBuffer();
-      for (CompanyType comObj : company_type) {
-        companyName.append(comObj.getDisplay_name() + ",");
-      }
-      companyName.deleteCharAt(companyName.length() - 1);
-      companyType = companyName.toString();
-    }
-    return companyType;
-  }
-
-  public void setCompanyType(String companyType) {
-    this.companyType = companyType;
-  }
-
-  public String getMarket() {
-    if (markets != null && markets.size() > 0) {
-      StringBuffer marketTag = new StringBuffer();
-      for (Markets markObj : markets) {
-        marketTag.append(markObj.getDisplay_name() + ",");
-      }
-      marketTag.deleteCharAt(marketTag.length() - 1);
-      market = marketTag.toString();
-    }
-    return market;
-  }
-
-  public void setMarket(String market) {
-    this.market = market;
-  }
-
-  public String getLocation() {
-    if (locations != null && locations.size() > 0) {
-      System.out.println("get location");
-      StringBuffer locationSet = new StringBuffer();
-      for (Location locObj : locations) {
-        locationSet.append(locObj.getDisplay_name() + ",");
-      }
-      locationSet.deleteCharAt(locationSet.length() - 1);
-      location = locationSet.toString();
-    }
-    return location;
-  }
-
-  public void setLocation(String location) {
-    this.location = location;
-  }
-
-
-  public List getLocations() {
-    System.out.println("get location");
-    return this.locations;
-  }
-
   public String getAngellist_url() {
-    return this.angellist_url;
+    return angellist_url;
   }
 
   public void setAngellist_url(String angellist_url) {
@@ -97,31 +42,31 @@ public class Startups {
   }
 
   public String getBlog_url() {
-    return this.blog_url;
+    return blog_url;
   }
 
   public void setBlog_url(String blog_url) {
     this.blog_url = blog_url;
   }
 
-  public boolean getCommunity_profile() {
-    return this.community_profile;
+  public boolean isCommunity_profile() {
+    return community_profile;
   }
 
   public void setCommunity_profile(boolean community_profile) {
     this.community_profile = community_profile;
   }
 
-  public List getCompany_type() {
-    return this.company_type;
+  public List<CompanyType> getCompany_type() {
+    return company_type;
   }
 
-  public void setCompany_type(List company_type) {
+  public void setCompany_type(List<CompanyType> company_type) {
     this.company_type = company_type;
   }
 
   public String getCompany_url() {
-    return this.company_url;
+    return company_url;
   }
 
   public void setCompany_url(String company_url) {
@@ -129,7 +74,7 @@ public class Startups {
   }
 
   public String getCreated_at() {
-    return this.created_at;
+    return created_at;
   }
 
   public void setCreated_at(String created_at) {
@@ -137,7 +82,7 @@ public class Startups {
   }
 
   public String getCrunchbase_url() {
-    return this.crunchbase_url;
+    return crunchbase_url;
   }
 
   public void setCrunchbase_url(String crunchbase_url) {
@@ -145,15 +90,15 @@ public class Startups {
   }
 
   public Number getFollower_count() {
-    return this.follower_count;
+    return follower_count;
   }
 
   public void setFollower_count(Number follower_count) {
     this.follower_count = follower_count;
   }
 
-  public boolean getHidden() {
-    return this.hidden;
+  public boolean isHidden() {
+    return hidden;
   }
 
   public void setHidden(boolean hidden) {
@@ -161,7 +106,7 @@ public class Startups {
   }
 
   public String getHigh_concept() {
-    return this.high_concept;
+    return high_concept;
   }
 
   public void setHigh_concept(String high_concept) {
@@ -169,36 +114,39 @@ public class Startups {
   }
 
   public Number getId() {
-    return this.id;
+    return id;
   }
 
   public void setId(Number id) {
     this.id = id;
   }
 
-  public void setLocations(List locations) {
-    System.out.println("set location");
+  public List<Location> getLocations() {
+    return locations;
+  }
+
+  public void setLocations(List<Location> locations) {
     this.locations = locations;
   }
 
   public String getLogo_url() {
-    return this.logo_url;
+    return logo_url;
   }
 
   public void setLogo_url(String logo_url) {
     this.logo_url = logo_url;
   }
 
-  public List getMarkets() {
-    return this.markets;
+  public List<Markets> getMarkets() {
+    return markets;
   }
 
-  public void setMarkets(List markets) {
+  public void setMarkets(List<Markets> markets) {
     this.markets = markets;
   }
 
   public String getName() {
-    return this.name;
+    return name;
   }
 
   public void setName(String name) {
@@ -206,7 +154,7 @@ public class Startups {
   }
 
   public String getProduct_desc() {
-    return this.product_desc;
+    return product_desc;
   }
 
   public void setProduct_desc(String product_desc) {
@@ -214,7 +162,7 @@ public class Startups {
   }
 
   public Number getQuality() {
-    return this.quality;
+    return quality;
   }
 
   public void setQuality(Number quality) {
@@ -222,23 +170,23 @@ public class Startups {
   }
 
   public List getScreenshots() {
-    return this.screenshots;
+    return screenshots;
   }
 
   public void setScreenshots(List screenshots) {
     this.screenshots = screenshots;
   }
 
-  public String getStatus() {
-    return this.status;
+  public List getStatus() {
+    return status;
   }
 
-  public void setStatus(String status) {
+  public void setStatus(List status) {
     this.status = status;
   }
 
   public String getThumb_url() {
-    return this.thumb_url;
+    return thumb_url;
   }
 
   public void setThumb_url(String thumb_url) {
@@ -246,7 +194,7 @@ public class Startups {
   }
 
   public String getTwitter_url() {
-    return this.twitter_url;
+    return twitter_url;
   }
 
   public void setTwitter_url(String twitter_url) {
@@ -254,7 +202,7 @@ public class Startups {
   }
 
   public String getUpdated_at() {
-    return this.updated_at;
+    return updated_at;
   }
 
   public void setUpdated_at(String updated_at) {
@@ -262,10 +210,36 @@ public class Startups {
   }
 
   public String getVideo_url() {
-    return this.video_url;
+    return video_url;
   }
 
   public void setVideo_url(String video_url) {
     this.video_url = video_url;
   }
+
+  public String getLocation() {
+    return location;
+  }
+
+  public void setLocation(String location) {
+    this.location = location;
+  }
+
+  public String getMarket() {
+    return market;
+  }
+
+  public void setMarket(String market) {
+    this.market = market;
+  }
+
+  public String getCompanyType() {
+    return companyType;
+  }
+
+  public void setCompanyType(String companyType) {
+    this.companyType = companyType;
+  }
+
+
 }
