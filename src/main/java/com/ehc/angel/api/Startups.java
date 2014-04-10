@@ -122,10 +122,12 @@ public class Startups {
   }
 
   public List<Location> getLocations() {
+    System.out.println("Loaction");
     return locations;
   }
 
   public void setLocations(List<Location> locations) {
+    System.out.println("Loaction");
     this.locations = locations;
   }
 
@@ -218,6 +220,18 @@ public class Startups {
   }
 
   public String getLocation() {
+    System.out.println("Loaction");
+    if (locations != null && locations.size() > 0) {
+      System.out.println("Loaction");
+      StringBuffer locationSet = new StringBuffer();
+      for (Location locObj : locations) {
+        locationSet.append(locObj.getDisplay_name() + ",");
+        System.out.println("Loaction");
+      }
+      locationSet.deleteCharAt(locationSet.length() - 1);
+      location = locationSet.toString();
+    }
+    System.out.println("Loaction" + location);
     return location;
   }
 

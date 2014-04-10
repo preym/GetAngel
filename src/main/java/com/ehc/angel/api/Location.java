@@ -2,11 +2,11 @@
 package com.ehc.angel.api;
 
 public class Location {
-  private String angellist_url;
-  private String display_name;
   private Number id;
-  private String name;
   private String tag_type;
+  private String name;
+  private String display_name;
+  private String angellist_url;
 
 
   public String getAngellist_url() {

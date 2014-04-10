@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -35,18 +36,19 @@ public class AngelStartUp {
   ReportColumn[] reportColumns = new ReportColumn[]{
       new ReportColumn("id", "Id", FormatType.formatType.INTEGER),
       new ReportColumn("name", "Name", FormatType.formatType.TEXT),
+      new ReportColumn("location", "Location", FormatType.formatType.TEXT),
       new ReportColumn("twitter_url", "Twitter Url", FormatType.formatType.TEXT),
-      new ReportColumn("follower_count", "Followers", FormatType.formatType.INTEGER),
       new ReportColumn("angellist_url", "AngelList Url", FormatType.formatType.TEXT),
-      new ReportColumn("blog_url", "Blog Url", FormatType.formatType.TEXT),
       new ReportColumn("linkedin_url", "LinkedIn Url", FormatType.formatType.TEXT),
-      new ReportColumn("community_profile", "Community Profile", FormatType.formatType.TEXT),
       new ReportColumn("company_url", "Company Url", FormatType.formatType.TEXT),
-      new ReportColumn("created_at", "Created At", FormatType.formatType.TEXT),
+      new ReportColumn("blog_url", "Blog Url", FormatType.formatType.TEXT),
       new ReportColumn("crunchbase_url", "Crunchbase Url", FormatType.formatType.TEXT),
+      new ReportColumn("logo_url", "Logo Url", FormatType.formatType.TEXT),
+      new ReportColumn("community_profile", "Community Profile", FormatType.formatType.TEXT),
+      new ReportColumn("follower_count", "Followers", FormatType.formatType.INTEGER),
+      new ReportColumn("created_at", "Created At", FormatType.formatType.TEXT),
       new ReportColumn("hidden", "Hidden", FormatType.formatType.TEXT),
       new ReportColumn("high_concept", "High Concept", FormatType.formatType.TEXT),
-      new ReportColumn("logo_url", "Logo Url", FormatType.formatType.TEXT),
       new ReportColumn("product_desc", "Product Desc", FormatType.formatType.TEXT),
       new ReportColumn("quality", "Quality", FormatType.formatType.TEXT),
       new ReportColumn("screenshots", "ScreenShots", FormatType.formatType.TEXT),
@@ -54,8 +56,6 @@ public class AngelStartUp {
       new ReportColumn("thumb_url", "Thumb Url", FormatType.formatType.TEXT),
       new ReportColumn("updated_at", "Updated At", FormatType.formatType.TEXT),
       new ReportColumn("video_url", "Video Url", FormatType.formatType.TEXT),
-      new ReportColumn("location", "Location", FormatType.formatType.TEXT),
-      new ReportColumn("locations", "Locations", FormatType.formatType.TEXT),
       new ReportColumn("market", "Market Tag", FormatType.formatType.TEXT),
       new ReportColumn("companyType", "Company Type", FormatType.formatType.TEXT)
   };
@@ -95,7 +95,6 @@ public class AngelStartUp {
     oReport.write(outputStream);
     outputStream.flush();
     outputStream.close();
-
   }
 
   public void appendDataToWorkbook(List<Startups> data) {
@@ -104,6 +103,7 @@ public class AngelStartUp {
       for (int i = 0; i < data.size(); i++) {
         row = sheet.createRow(sheet.getLastRowNum() + 1);
         Object bean = data.get(i);
+        parseInnerData(bean);
         for (int y = 0; y < reportColumns.length; y++) {
           Object value = PropertyUtils.getProperty(bean,
               reportColumns[y].getMethod());
@@ -112,6 +112,7 @@ public class AngelStartUp {
         }
       }
     } catch (Exception e) {
+      System.out.println("caught exception");
       e.printStackTrace();
     }
 
@@ -121,41 +122,37 @@ public class AngelStartUp {
     }
   }
 
+  private void parseInnerData(Object bean) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+    Object locations = PropertyUtils.getProperty(bean, "locations");
+    if (locations != null) {
+      List<Location> locationList = (List<Location>) locations;
+      String locationSet = "";
+      if (locationList != null) {
+        for (int index = 0; index < locationList.size(); index++) {
+          Object location = locationList.get(index);
+          locationSet = locationSet + PropertyUtils.getProperty(location, "display_name") + ",";
+        }
+      }
+      PropertyUtils.setProperty(bean, "location", locationSet.replace(
+          locationSet.charAt(locationSet.lastIndexOf(',')), ' '));
+    }
+  }
+
 
   public List<Startups> filterdata(List<Startups> data) {
     List<Startups> list = new ArrayList();
     for (int index = 0; index < data.size(); index++) {
       Object twitterValue = null;
       try {
-        twitterValue = PropertyUtils.getProperty(data.get(index),
-            reportColumns[2].getMethod());
+        twitterValue = PropertyUtils.getProperty(data.get(index), "twitter_url");
       } catch (Exception e) {
         e.printStackTrace();
       }
       if (twitterValue == null || twitterValue.toString().equals("")) {
-        System.out.println("Value is null:" + twitterValue);
         continue;
       }
       list.add(data.get(index));
     }
-
-
-//    Iterator iterator = data.iterator();
-//    while (iterator.hasNext()) {
-//      System.out.println(iterator.next().toString());
-//      try {
-//        Startups startup = ((Startups) iterator.next());
-//        System.out.println(startup.toString());
-////        String twitterUrl = startup.getTwitter_url();
-////        System.out.println("twitterURL:" + twitterUrl);
-////
-////        if (twitterUrl != null && !twitterUrl.equals("")) {
-//        list.add(startup);
-////        }
-//      } catch (Exception e) {
-//      }
-//    }
-    System.out.println(list);
     return list;
   }
 
@@ -167,7 +164,6 @@ public class AngelStartUp {
       HttpResponse<JsonNode> request = Unirest.get("https://api.angel.co/1/tags/1654/startups?page=" + pageNumber)
           .asJson();
       JsonNode node = request.getBody();
-//      System.out.println(node.toString());
       Gson gson = new Gson();
       this.noOfRequests++;
       StartUp startupList = gson.fromJson(node.toString(), StartUp.class);
@@ -197,7 +193,6 @@ public class AngelStartUp {
         fos.close();
       }
     } catch (Exception e) {
-//      System.out.println(e.getMessage());
     }
   }
 
