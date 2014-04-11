@@ -103,6 +103,8 @@ public class AngelStartUp {
       for (int i = 0; i < data.size(); i++) {
         row = sheet.createRow(sheet.getLastRowNum() + 1);
         Object bean = data.get(i);
+        parseInnerCompanyDate(bean);
+        parseInnerMarketDate(bean);
         parseInnerData(bean);
         for (int y = 0; y < reportColumns.length; y++) {
           Object value = PropertyUtils.getProperty(bean,
@@ -120,6 +122,47 @@ public class AngelStartUp {
     for (int i = 0; i < reportColumns.length; i++) {
       sheet.autoSizeColumn((short) i);
     }
+  }
+
+
+  private void parseInnerMarketDate(Object bean) throws InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+    Object markets = PropertyUtils.getProperty(bean, "markets");
+    if (markets != null) {
+      List<Markets> marketsList = (List<Markets>) markets;
+      String marketSet = "";
+      if (marketsList != null) {
+        for (int index = 1; index < marketsList.size(); index++) {
+          Object market = marketsList.get(index);
+          marketSet = marketSet + PropertyUtils.getProperty(market, "display_name") + ",";
+        }
+        System.out.println("markets :" + marketSet);
+      }
+      PropertyUtils.setProperty(bean, "market", marketSet);
+//      PropertyUtils.setProperty(bean, "market", marketSet.replace(
+//          marketSet.charAt(marketSet.lastIndexOf(',')), ' '));
+    }
+
+  }
+
+
+  private void parseInnerCompanyDate(Object bean) throws InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+    Object companyType = PropertyUtils.getProperty(bean, "company_type");
+    if (companyType != null) {
+      List<CompanyType> typeList = (List<CompanyType>) companyType;
+      String typeSet = "";
+      if (typeList != null) {
+        for (int index = 0; index < typeList.size(); index++) {
+          Object comType = typeList.get(index);
+          typeSet = typeSet + PropertyUtils.getProperty(comType, "display_name") + ",";
+        }
+        System.out.println("typeSet :" + typeSet);
+      }
+      PropertyUtils.setProperty(bean, "companyType", typeSet);
+//      PropertyUtils.setProperty(bean, "companyType", typeSet.replace(
+//          typeSet.charAt(typeSet.lastIndexOf(',')), ' '));
+    }
+
+
   }
 
   private void parseInnerData(Object bean) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
