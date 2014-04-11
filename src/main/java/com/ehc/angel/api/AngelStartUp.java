@@ -117,7 +117,6 @@ public class AngelStartUp {
       System.out.println("caught exception");
       e.printStackTrace();
     }
-
     // Autosize columns
     for (int i = 0; i < reportColumns.length; i++) {
       sheet.autoSizeColumn((short) i);
@@ -135,13 +134,9 @@ public class AngelStartUp {
           Object market = marketsList.get(index);
           marketSet = marketSet + PropertyUtils.getProperty(market, "display_name") + ",";
         }
-        System.out.println("markets :" + marketSet);
       }
       PropertyUtils.setProperty(bean, "market", marketSet);
-//      PropertyUtils.setProperty(bean, "market", marketSet.replace(
-//          marketSet.charAt(marketSet.lastIndexOf(',')), ' '));
     }
-
   }
 
 
@@ -155,14 +150,9 @@ public class AngelStartUp {
           Object comType = typeList.get(index);
           typeSet = typeSet + PropertyUtils.getProperty(comType, "display_name") + ",";
         }
-        System.out.println("typeSet :" + typeSet);
       }
       PropertyUtils.setProperty(bean, "companyType", typeSet);
-//      PropertyUtils.setProperty(bean, "companyType", typeSet.replace(
-//          typeSet.charAt(typeSet.lastIndexOf(',')), ' '));
     }
-
-
   }
 
   private void parseInnerData(Object bean) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
@@ -203,7 +193,6 @@ public class AngelStartUp {
   private int getStartups(int pageNumber) {
     int noOfPages = 1;
     try {
-
       HttpResponse<JsonNode> request = Unirest.get("https://api.angel.co/1/tags/1654/startups?page=" + pageNumber)
           .asJson();
       JsonNode node = request.getBody();
@@ -315,5 +304,4 @@ public class AngelStartUp {
           CellUtil.FILL_PATTERN, HSSFCellStyle.SOLID_FOREGROUND);
     }
   }
-
 }
